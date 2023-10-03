@@ -2,7 +2,9 @@ package co.edu.uco.spaonline.data.dao.daofactory;
 
 import co.edu.uco.spaonline.data.dao.daofactory.concrete.SQLServerDAOFactory;
 import co.edu.uco.spaonline.data.dao.ClienteDAO;
+import co.edu.uco.spaonline.data.dao.ServicioDAO;
 import co.edu.uco.spaonline.data.dao.TipoIdentificacionDAO;
+import co.edu.uco.spaonline.data.dao.TipoServicioDAO;
 
 public abstract class DAOFactory {
 	
@@ -38,5 +40,9 @@ public abstract class DAOFactory {
 	public abstract ClienteDAO obtenerClienteDAO();
 	
 	public abstract TipoIdentificacionDAO obtenerTipoIdentidicacionDAO ();
+	
+	public abstract ServicioDAO	obtenerServicioDAO();
+	
+	public abstract TipoServicioDAO obtenerTipoServicioDAO();
 
 }

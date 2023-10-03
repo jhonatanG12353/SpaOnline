@@ -1,15 +1,22 @@
 package co.edu.uco.spaonline.data.dao.daofactory.concrete;
 
 import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
 import co.edu.uco.spaonline.data.dao.ClienteDAO;
+import co.edu.uco.spaonline.data.dao.ServicioDAO;
 import co.edu.uco.spaonline.data.dao.TipoIdentificacionDAO;
+import co.edu.uco.spaonline.data.dao.TipoServicioDAO;
 import co.edu.uco.spaonline.data.dao.concrete.sqlserver.ClienteSQLServerDAO;
+import co.edu.uco.spaonline.data.dao.concrete.sqlserver.ServicioSQLServerDAO;
 import co.edu.uco.spaonline.data.dao.concrete.sqlserver.TipoIdentificacionSQLServerDAO;
+import co.edu.uco.spaonline.data.dao.concrete.sqlserver.TipoServicioSQLServerDAO;
 import co.edu.uco.spaonline.data.dao.daofactory.DAOFactory;
 
 public final class SQLServerDAOFactory extends DAOFactory{
-	
 	private Connection conexion; 
+	private boolean enTransaccion = false;
 	
 	public SQLServerDAOFactory() {
 		abrirConexion();
@@ -17,32 +24,66 @@ public final class SQLServerDAOFactory extends DAOFactory{
 
 	@Override
 	protected final void abrirConexion() {
-		// TODO Your Homework will be to obtain connection with SQL Server
-		conexion= null;
+		 try {
+	            
+	            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");        
+	            String url = "jdbc:sqlserver://localhost:1433;databaseName=localhost";
+	            String usuario = "DESKTOP-UHNANUA";
+	            String contraseña = "";
+	            
+	            conexion = DriverManager.getConnection(url, usuario, contraseña);
+	        } catch (ClassNotFoundException | SQLException e) {
+	            e.printStackTrace();
+	        }
 	}
 
 	@Override
 	public final void cerrarConexion() {
-		// TODO Your homework will be to close connection
-		
+		 try {
+	            if (conexion != null && !conexion.isClosed()) {
+	                conexion.close();
+	            }
+	        } catch (SQLException e) {
+	            e.printStackTrace();
+	        }
 	}
 
 	@Override
 	public final void iniciarTransaccion() {
-		// TODO Your homework will be to init transaction 
-		
+		try {
+            if (!enTransaccion) {
+                conexion.setAutoCommit(false);
+                enTransaccion = true;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
 	}
 
 	@Override
 	public final void confirmarTransaccion() {
-		// TODO Your homework will be to commit transaction
-		
+		try {
+            if (enTransaccion) {
+                conexion.commit();
+                conexion.setAutoCommit(true);
+                enTransaccion = false;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
 	}
 
 	@Override
 	public final  void cancelarTransaccion() {
-		// TODO Your homework will be to rollback transaction
-		
+		 try {
+	            if (enTransaccion) {
+	                conexion.rollback();
+	                conexion.setAutoCommit(true);
+	                enTransaccion = false;
+	            }
+	        } catch (SQLException e) {
+	            e.printStackTrace();
+	        }
 	}
 
 	@Override
@@ -54,6 +95,14 @@ public final class SQLServerDAOFactory extends DAOFactory{
 	public TipoIdentificacionDAO obtenerTipoIdentidicacionDAO() {
 		return new TipoIdentificacionSQLServerDAO(conexion);
 	}
+	@Override
+	public ServicioDAO obtenerServicioDAO() {
+		return new ServicioSQLServerDAO(conexion);
+	}
+	@Override
+	public TipoServicioDAO obtenerTipoServicioDAO() {
+		return new TipoServicioSQLServerDAO(conexion);
+	}
 	
-
+	
 }
