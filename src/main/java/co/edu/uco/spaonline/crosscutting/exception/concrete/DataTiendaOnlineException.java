@@ -6,6 +6,7 @@ public final class DataTiendaOnlineException  extends TiendaOnlineException{
 	
 
 	private static final long serialVersionUID = -2727036418055792587L;
+
 	
 
 }
