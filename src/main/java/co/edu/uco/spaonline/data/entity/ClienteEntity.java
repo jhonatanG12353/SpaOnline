@@ -2,7 +2,6 @@ package co.edu.uco.spaonline.data.entity;
 
 import java.util.UUID;
 
-import co.edu.uco.spaonline.data.entity.TipoIdentificacionEntity;
 import co.edu.uco.spaonline.data.entity.support.CorreoElectronicoClienteEntity;
 import co.edu.uco.spaonline.data.entity.support.NombreCompletoClienteEntity;
 import co.edu.uco.spaonline.data.entity.support.NumeroTelefonoMovilClienteEntity;
