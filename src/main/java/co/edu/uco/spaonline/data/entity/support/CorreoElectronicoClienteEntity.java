@@ -1,5 +1,7 @@
 package co.edu.uco.spaonline.data.entity.support;
 
+import co.edu.uco.spaonline.data.entity.support.CorreoElectronicoClienteEntity;
+
 public class CorreoElectronicoClienteEntity {
 
 	public String CorreoElectronico;
@@ -19,6 +21,11 @@ public class CorreoElectronicoClienteEntity {
 	}
 	public final boolean isCorreoElectronicoConfirmado() {
 		return correoElectronicoConfirmado;
+	}
+	
+	public static CorreoElectronicoClienteEntity crear(String correoElectronico,
+			boolean correoElectronicoConfirmado) {
+		return new CorreoElectronicoClienteEntity (correoElectronico,correoElectronicoConfirmado);
 	}
 	
 }

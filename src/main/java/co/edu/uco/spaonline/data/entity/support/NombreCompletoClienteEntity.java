@@ -1,5 +1,7 @@
 package co.edu.uco.spaonline.data.entity.support;
 
+import co.edu.uco.spaonline.data.entity.support.NombreCompletoClienteEntity;
+
 public class NombreCompletoClienteEntity {
 	public String primerNombre;
 	public String segundoNombre;
@@ -11,6 +13,11 @@ public class NombreCompletoClienteEntity {
 		setSegundoNombre(segundoNombre);
 		setPrimerApellido(primerApellido);
 		setSegundoApellido(segundoApellido);
+	}
+	public static NombreCompletoClienteEntity crear(String primerNombre, String segundoNombre, String primerApellido,
+			String segundoApellido) {
+	
+		return new NombreCompletoClienteEntity(primerNombre, segundoNombre, primerApellido, segundoApellido);
 	}
 	private final void setPrimerNombre(String primerNombre) {
 		this.primerNombre = primerNombre;

@@ -5,6 +5,11 @@ import java.util.UUID;
 import co.edu.uco.spaonline.data.entity.support.CorreoElectronicoClienteEntity;
 import co.edu.uco.spaonline.data.entity.support.NombreCompletoClienteEntity;
 import co.edu.uco.spaonline.data.entity.support.NumeroTelefonoMovilClienteEntity;
+import co.edu.uco.spaonline.data.entity.ClienteEntity;
+import co.edu.uco.spaonline.service.domain.support.CorreoElectronicoClienteDomain;
+import co.edu.uco.spaonline.service.domain.support.NombreCompletoClienteDomain;
+import co.edu.uco.spaonline.service.domain.support.NumeroTelefonoMovilClienteDomain;
+import co.edu.uco.spaonline.service.domain.tipoidentificacion.TipoIdentificacionDomain;
 
 public final class ClienteEntity {
 	private UUID id;
@@ -23,6 +28,9 @@ public final class ClienteEntity {
 		setNumeroTelefonoMovil(numeroTelefonoMovilClienteEntity);
 		
 	}
+	public static final ClienteEntity crear (final UUID id, final TipoIdentificacionDomain tipoIdentificacion, final String identificacion, final NombreCompletoClienteDomain nombreCompletoCliente, final CorreoElectronicoClienteDomain correoElectronicoCliente, final NumeroTelefonoMovilClienteDomain numeroTelefonoMovilCliente) {
+		return new ClienteEntity (id, null, identificacion, null, null, null);
+	}
 	private final void setId(UUID id) {
 		this.id = id;
 	}
@@ -36,13 +44,13 @@ public final class ClienteEntity {
 	public final void setNombreCompleto(NombreCompletoClienteEntity nombreCompleto) {
 		this.nombreCompleto = nombreCompleto;
 	}
-	private final CorreoElectronicoClienteEntity getCorreoElectronico() {
+	public final CorreoElectronicoClienteEntity getCorreoElectronico() {
 		return correoElectronico;
 	}
 	private final void setCorreoElectronico(CorreoElectronicoClienteEntity correoElectronico) {
 		this.correoElectronico = correoElectronico;
 	}
-	private final NumeroTelefonoMovilClienteEntity getNumeroTelefonoMovil() {
+	public final NumeroTelefonoMovilClienteEntity getNumeroTelefonoMovil() {
 		return numeroTelefonoMovil;
 	}
 	private final void setNumeroTelefonoMovil(NumeroTelefonoMovilClienteEntity numeroTelefonoMovil) {
