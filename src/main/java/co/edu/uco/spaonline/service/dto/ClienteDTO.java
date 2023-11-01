@@ -8,6 +8,11 @@ import co.edu.uco.spaonline.crosscutting.util.UtilTexto;
 import co.edu.uco.spaonline.service.dto.support.CorreoElectronicoClienteDTO;
 import co.edu.uco.spaonline.service.dto.support.NombreCompletoClienteDTO;
 import co.edu.uco.spaonline.service.dto.support.NumeroTelefonoMovilClienteDTO;
+import co.edu.uco.spaonline.service.domain.support.CorreoElectronicoClienteDomain;
+import co.edu.uco.spaonline.service.domain.support.NombreCompletoClienteDomain;
+import co.edu.uco.spaonline.service.domain.support.NumeroTelefonoMovilClienteDomain;
+import co.edu.uco.spaonline.service.domain.tipoidentificacion.TipoIdentificacionDomain;
+import co.edu.uco.spaonline.service.dto.ClienteDTO;
 
 public final class ClienteDTO {
 	
@@ -30,6 +35,9 @@ public final class ClienteDTO {
 		setCorreoElectronico(correoElectronico);
 		setNumeroTelefonoMovil(numeroTelefonoMovil);
 		setFechaNacimiento(UtilFechaDefecto.generarFechaInvalida());
+	}
+	public static final ClienteDTO crear (final UUID id, final TipoIdentificacionDomain tipoIdentificacion, final String identificacion, final NombreCompletoClienteDomain nombreCompletoCliente, final CorreoElectronicoClienteDomain correoElectronicoCliente, final NumeroTelefonoMovilClienteDomain numeroTelefonoMovilCliente) {
+		return new ClienteDTO (id, null, identificacion, null, null, null,null);
 	}
 	
 	

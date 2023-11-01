@@ -1,5 +1,7 @@
 package co.edu.uco.spaonline.service.dto.support;
 
+import co.edu.uco.spaonline.service.dto.support.NumeroTelefonoMovilClienteDTO;
+
 public class NumeroTelefonoMovilClienteDTO {
 	
 	public String numeroTelefonoMovil;
@@ -9,6 +11,11 @@ public class NumeroTelefonoMovilClienteDTO {
 	public NumeroTelefonoMovilClienteDTO(String numeroTelefonoMovil, boolean numeroTelefonoConfirmado) {
 		setNumeroTelefonoConfirmado(numeroTelefonoConfirmado);
 		setNumeroTelefonoMovil(numeroTelefonoMovil);
+	}
+	public static NumeroTelefonoMovilClienteDTO crear(String numeroTelefonoMovil,
+			boolean numeroTelefonoConfirmado) {
+		
+		return new NumeroTelefonoMovilClienteDTO(numeroTelefonoMovil, numeroTelefonoConfirmado);
 	}
 	public final NumeroTelefonoMovilClienteDTO setNumeroTelefonoMovil(String numeroTelefonoMovil) {
 		this.numeroTelefonoMovil = numeroTelefonoMovil;

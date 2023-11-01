@@ -1,5 +1,7 @@
 package co.edu.uco.spaonline.service.dto.support;
 
+import co.edu.uco.spaonline.service.dto.support.NombreCompletoClienteDTO;
+
 public class NombreCompletoClienteDTO {
 	
 	public String primerNombre;
@@ -42,6 +44,11 @@ public class NombreCompletoClienteDTO {
 	}
 	public final String getSegundoApellido() {
 		return segundoApellido;
+	}
+	public static NombreCompletoClienteDTO crear(String primerNombre, String segundoNombre, String primerApellido,
+			String segundoApellido) {
+	
+		return new NombreCompletoClienteDTO(primerNombre, segundoNombre, primerApellido, segundoApellido);
 	}
 	
 	

@@ -1,5 +1,7 @@
 package co.edu.uco.spaonline.service.dto.support;
 
+import co.edu.uco.spaonline.service.dto.support.CorreoElectronicoClienteDTO;
+
 public class CorreoElectronicoClienteDTO {
 	
 	public String CorreoElectronico;
@@ -24,6 +26,10 @@ public class CorreoElectronicoClienteDTO {
 	}
 	public final boolean isCorreoElectronicoConfirmado() {
 		return correoElectronicoConfirmado;
+	}
+	public static CorreoElectronicoClienteDTO crear(String correoElectronico,
+			boolean correoElectronicoConfirmado) {
+		return new CorreoElectronicoClienteDTO (correoElectronico,correoElectronicoConfirmado);
 	}
 	
 	

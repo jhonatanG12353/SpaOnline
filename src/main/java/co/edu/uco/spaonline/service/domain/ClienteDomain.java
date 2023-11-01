@@ -11,6 +11,11 @@ import co.edu.uco.spaonline.service.domain.support.CorreoElectronicoClienteDomai
 import co.edu.uco.spaonline.service.domain.support.NombreCompletoClienteDomain;
 import co.edu.uco.spaonline.service.domain.support.NumeroTelefonoMovilClienteDomain;
 import co.edu.uco.spaonline.service.domain.tipoidentificacion.TipoIdentificacionDomain;
+import co.edu.uco.spaonline.service.domain.ClienteDomain;
+import co.edu.uco.spaonline.service.dto.TipoIdentificacionDTO;
+import co.edu.uco.spaonline.service.dto.support.CorreoElectronicoClienteDTO;
+import co.edu.uco.spaonline.service.dto.support.NombreCompletoClienteDTO;
+import co.edu.uco.spaonline.service.dto.support.NumeroTelefonoMovilClienteDTO;
 
 public final class ClienteDomain {
 	private UUID id;
@@ -36,6 +41,13 @@ public final class ClienteDomain {
 		return new ClienteDomain(id, null, identificacion, null, null, null);
 				
 	}
+	
+	public static final ClienteDomain crear2(final UUID id, final TipoIdentificacionDTO tipoIdentificacion, final String identificacion, final NombreCompletoClienteDTO nombreCliente,
+			final CorreoElectronicoClienteDTO correoCliente, final NumeroTelefonoMovilClienteDTO numeroTelefonoMovilCliente) {
+				return new ClienteDomain(id, null, identificacion, null, null, null);
+					
+		}
+	
 	private final void setId(UUID id) {
 		this.id = id;
 	}
