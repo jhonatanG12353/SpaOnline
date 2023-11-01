@@ -11,6 +11,9 @@ public class TipoServicioEntity {
 		setId(id);
 		setNombreTipoServicio(nombreTipoServicio);
 	}
+	public static final TipoServicioEntity crear (final UUID id, final String nombreTipoServicio) {
+		return new TipoServicioEntity(id, nombreTipoServicio);
+	}
 
 	private final void setId(UUID id) {
 		this.id = id;

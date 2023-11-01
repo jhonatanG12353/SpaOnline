@@ -7,7 +7,7 @@ import co.edu.uco.spaonline.crosscutting.messages.CatalogoMensajes;
 import co.edu.uco.spaonline.crosscutting.messages.enumerator.CodigoMensaje;
 import co.edu.uco.spaonline.crosscutting.util.UtilObjeto;
 import co.edu.uco.spaonline.data.entity.ClienteEntity;
-import co.edu.uco.spaonline.service.domain.ClienteDomain;
+import co.edu.uco.spaonline.service.domain.cliente.ClienteDomain;
 import co.edu.uco.spaonline.service.mapper.entity.EntityMapper;
 
 public class ClienteEntityMapper implements EntityMapper<ClienteEntity, ClienteDomain>  {

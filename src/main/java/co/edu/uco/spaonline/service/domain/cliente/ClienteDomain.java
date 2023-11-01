@@ -1,4 +1,4 @@
-package co.edu.uco.spaonline.service.domain;
+package co.edu.uco.spaonline.service.domain.cliente;
 
 import java.util.UUID;
 
@@ -7,11 +7,11 @@ import co.edu.uco.spaonline.data.entity.TipoIdentificacionEntity;
 import co.edu.uco.spaonline.data.entity.support.CorreoElectronicoClienteEntity;
 import co.edu.uco.spaonline.data.entity.support.NombreCompletoClienteEntity;
 import co.edu.uco.spaonline.data.entity.support.NumeroTelefonoMovilClienteEntity;
+import co.edu.uco.spaonline.service.domain.cliente.ClienteDomain;
 import co.edu.uco.spaonline.service.domain.support.CorreoElectronicoClienteDomain;
 import co.edu.uco.spaonline.service.domain.support.NombreCompletoClienteDomain;
 import co.edu.uco.spaonline.service.domain.support.NumeroTelefonoMovilClienteDomain;
 import co.edu.uco.spaonline.service.domain.tipoidentificacion.TipoIdentificacionDomain;
-import co.edu.uco.spaonline.service.domain.ClienteDomain;
 import co.edu.uco.spaonline.service.dto.TipoIdentificacionDTO;
 import co.edu.uco.spaonline.service.dto.support.CorreoElectronicoClienteDTO;
 import co.edu.uco.spaonline.service.dto.support.NombreCompletoClienteDTO;

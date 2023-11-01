@@ -26,7 +26,10 @@ public final class TipoIdentificacionDTO {
 		setNombre(nombre);
 		setEstado(estado);
 	}
-	
+	public static TipoIdentificacionDTO crear(UUID id, String codigo, String nombre, boolean estado) {
+		
+		return new TipoIdentificacionDTO(id,codigo,nombre,estado);
+	}
 	
 	public final TipoIdentificacionDTO setId(final UUID id) {	
 			this.id = id;
@@ -61,6 +64,7 @@ public final class TipoIdentificacionDTO {
 	public final boolean isEstado() {
 		return estado;
 	}
+	
 	
 	
 	

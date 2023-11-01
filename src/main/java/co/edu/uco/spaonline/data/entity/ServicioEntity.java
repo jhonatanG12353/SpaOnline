@@ -2,17 +2,17 @@ package co.edu.uco.spaonline.data.entity;
 
 import java.util.UUID;
 
-import co.edu.uco.spaonline.data.entity.support.InformacionServicio;
+import co.edu.uco.spaonline.data.entity.support.InformacionServicioEntity;
 
 public final class ServicioEntity {
 	
 	private UUID id;
 	private  TipoServicioEntity tipoServicio;
-	private InformacionServicio informacionServicio;
+	private InformacionServicioEntity informacionServicio;
 	private Integer precio;
 	private Integer duracionHoraServicio;
 	
-	private ServicioEntity( final UUID id, final TipoServicioEntity tipoServicio, final InformacionServicio informacionServicio, final Integer precio,
+	private ServicioEntity( final UUID id, final TipoServicioEntity tipoServicio, final InformacionServicioEntity informacionServicio, final Integer precio,
 			final Integer duracionHoraServicio) {
 		
 		setId(id);
@@ -20,6 +20,11 @@ public final class ServicioEntity {
 		setInformacionServicio(informacionServicio);
 		setPrecio(precio);
 		setDuracionHoraServicio(duracionHoraServicio);
+	}
+	
+	public static final ServicioEntity crear ( final UUID id, final TipoServicioEntity tipoServicio, final InformacionServicioEntity informacionServicio, final Integer precio,
+			final Integer duracionHoraServicio) {
+		return new ServicioEntity(id, tipoServicio, informacionServicio, precio, duracionHoraServicio);
 	}
 
 	private final void setId(UUID id) {
@@ -30,7 +35,7 @@ public final class ServicioEntity {
 		this.tipoServicio = tipoServicio;
 	}
 
-	private final void setInformacionServicio(InformacionServicio informacionServicio) {
+	private final void setInformacionServicio(InformacionServicioEntity informacionServicio) {
 		this.informacionServicio = informacionServicio;
 	}
 
@@ -50,7 +55,7 @@ public final class ServicioEntity {
 		return tipoServicio;
 	}
 
-	public final InformacionServicio getInformacionServicio() {
+	public final InformacionServicioEntity getInformacionServicio() {
 		return informacionServicio;
 	}
 
