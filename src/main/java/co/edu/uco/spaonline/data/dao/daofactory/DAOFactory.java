@@ -1,6 +1,6 @@
 package co.edu.uco.spaonline.data.dao.daofactory;
 
-import co.edu.uco.spaonline.data.dao.daofactory.concrete.SQLServerDAOFactory;
+import co.edu.uco.spaonline.data.dao.daofactory.concrete.PostgreSQLDAOFactory;
 import co.edu.uco.spaonline.data.dao.ClienteDAO;
 import co.edu.uco.spaonline.data.dao.ServicioDAO;
 import co.edu.uco.spaonline.data.dao.TipoIdentificacionDAO;
@@ -8,13 +8,13 @@ import co.edu.uco.spaonline.data.dao.TipoServicioDAO;
 
 public abstract class DAOFactory {
 	
-	public static final SQLServerDAOFactory obtenerDAOFactory (final TipoDAOFactory factoria) {
+	public static final PostgreSQLDAOFactory obtenerDAOFactory (final TipoDAOFactory factoria) {
 		switch (factoria) {
 		case SQLSERVER:{
-			return new SQLServerDAOFactory(); 
+			throw new RuntimeException("Factoria no soportada"); 
 		}
 		case POSTGRESQL:{
-			throw new RuntimeException("Factoria no soportada"); 
+			return new PostgreSQLDAOFactory();  
 		}
 		case MYSQL:{
 			throw new RuntimeException("Factoria no soportada"); 
@@ -39,7 +39,7 @@ public abstract class DAOFactory {
 	
 	public abstract ClienteDAO obtenerClienteDAO();
 	
-	public abstract TipoIdentificacionDAO obtenerTipoIdentidicacionDAO ();
+	public abstract TipoIdentificacionDAO obtenerTipoIdentificacionDAO ();
 	
 	public abstract ServicioDAO	obtenerServicioDAO();
 	

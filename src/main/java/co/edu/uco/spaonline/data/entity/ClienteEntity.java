@@ -1,5 +1,6 @@
 package co.edu.uco.spaonline.data.entity;
 
+import java.sql.Date;
 import java.util.UUID;
 
 import co.edu.uco.spaonline.data.entity.support.CorreoElectronicoClienteEntity;
@@ -18,7 +19,8 @@ public final class ClienteEntity {
 	private NombreCompletoClienteEntity nombreCompleto;
 	private CorreoElectronicoClienteEntity correoElectronico;
 	private NumeroTelefonoMovilClienteEntity numeroTelefonoMovil;
-	private ClienteEntity(final UUID id, final TipoIdentificacionEntity tipoIdentificacion, final String identificacion, final NombreCompletoClienteEntity nombreClienteEntity, final CorreoElectronicoClienteEntity correoClienteEntity, final NumeroTelefonoMovilClienteEntity numeroTelefonoMovilClienteEntity) {
+	private static Date fechaNacimiento;
+	private ClienteEntity(final UUID id, final TipoIdentificacionEntity tipoIdentificacion, final String identificacion, final NombreCompletoClienteEntity nombreClienteEntity, final CorreoElectronicoClienteEntity correoClienteEntity, final NumeroTelefonoMovilClienteEntity numeroTelefonoMovilClienteEntity, final Date fechaNacimiento) {
 		
 		setId(id);
 		setTipoIdentificacion(tipoIdentificacion);
@@ -26,10 +28,11 @@ public final class ClienteEntity {
 		setNombreCompleto(nombreClienteEntity);
 		setCorreoElectronico(correoClienteEntity);
 		setNumeroTelefonoMovil(numeroTelefonoMovilClienteEntity);
+		setFechaNacimiento(fechaNacimiento);
 		
 	}
 	public static final ClienteEntity crear (final UUID id, final TipoIdentificacionDomain tipoIdentificacion, final String identificacion, final NombreCompletoClienteDomain nombreCompletoCliente, final CorreoElectronicoClienteDomain correoElectronicoCliente, final NumeroTelefonoMovilClienteDomain numeroTelefonoMovilCliente) {
-		return new ClienteEntity (id, null, identificacion, null, null, null);
+		return new ClienteEntity (id, null, identificacion, null, null, null, fechaNacimiento);
 	}
 	private final void setId(UUID id) {
 		this.id = id;
@@ -67,6 +70,13 @@ public final class ClienteEntity {
 	}
 	public final NombreCompletoClienteEntity getNombreCompleto() {
 		return nombreCompleto;
+	}
+	public final Date getFechaNacimiento() {
+		return fechaNacimiento;
+	}
+	@SuppressWarnings("static-access")
+	public final void setFechaNacimiento(Date fechaNacimiento) {
+		this.fechaNacimiento = fechaNacimiento;
 	}
 	
 

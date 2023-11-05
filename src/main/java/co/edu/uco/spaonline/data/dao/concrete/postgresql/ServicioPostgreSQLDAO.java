@@ -1,4 +1,4 @@
-package co.edu.uco.spaonline.data.dao.concrete.sqlserver;
+package co.edu.uco.spaonline.data.dao.concrete.postgresql;
 
 import java.sql.Connection;
 import java.util.List;
@@ -9,9 +9,9 @@ import co.edu.uco.spaonline.data.dao.ServicioDAO;
 import co.edu.uco.spaonline.data.dao.base.SQLDAO;
 import co.edu.uco.spaonline.data.entity.ServicioEntity;
 
-public class ServicioSQLServerDAO extends SQLDAO implements ServicioDAO {
+public class ServicioPostgreSQLDAO extends SQLDAO implements ServicioDAO {
 	
-	public  ServicioSQLServerDAO (final Connection conexion) {
+	public  ServicioPostgreSQLDAO (final Connection conexion) {
 		super(conexion);
 	}
 

@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>co.edu.uco.spaonline</groupId>
 	<artifactId>SpaOnline</artifactId>
-	<version>3.1.3</version>
+	<version>3.1.5</version>
 	<name>SpaOnline</name>
 	<description>Back end que ofrece todos los servicios de negocio para la aplicacion Spa Online</description>
 	<properties>
@@ -35,6 +35,29 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-thymeleaf</artifactId>
 		</dependency>
+		
+		<dependency>
+		   <groupId>org.springdoc</groupId>
+		   <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+		   <version>2.2.0</version>
+		</dependency>
+		<dependency>
+	    <groupId>org.springdoc</groupId>
+	    <artifactId>springdoc-openapi-ui</artifactId>
+	    <version>1.5.12</version> 
+		</dependency>
+		<dependency>
+	    <groupId>io.springfox</groupId>
+	    <artifactId>springfox-boot-starter</artifactId>
+	    <version>3.0.0</version>
+	 	</dependency>
+	 	<dependency>
+	    <groupId>org.postgresql</groupId>
+	    <artifactId>postgresql</artifactId>
+	    <version>42.6.0</version>
+		</dependency>
+
+
 	</dependencies>
 
 	<build>

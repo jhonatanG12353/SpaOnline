@@ -135,7 +135,7 @@ public class RegistrarTipoIdentificacionUseCase implements UseCase<TipoIdentific
 	}
 	
 	private final TipoIdentificacionDAO getTipoIdentificacionDAO() {
-		return getFactoria().obtenerTipoIdentidicacionDAO();
+		return getFactoria().obtenerTipoIdentificacionDAO();
 	}
 	//Creada para mejorar 
 	private TipoIdentificacionEntity convertirTipoIdentificacionDomainAEntity(String codigo) {
