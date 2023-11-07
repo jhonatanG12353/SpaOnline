@@ -2,17 +2,12 @@ package co.edu.uco.spaonline.service.mapper.dto.concrete;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
 
 import co.edu.uco.spaonline.crosscutting.exception.concrete.ServiceSpaOnlineException;
 import co.edu.uco.spaonline.crosscutting.messages.CatalogoMensajes;
 import co.edu.uco.spaonline.crosscutting.messages.enumerator.CodigoMensaje;
 import co.edu.uco.spaonline.crosscutting.util.UtilObjeto;
 import co.edu.uco.spaonline.service.domain.cliente.ClienteDomain;
-import co.edu.uco.spaonline.service.domain.correoelectronicocliente.CorreoElectronicoClienteDomain;
-import co.edu.uco.spaonline.service.domain.nombrecompletocliente.NombreCompletoClienteDomain;
-import co.edu.uco.spaonline.service.domain.numerotelefonomovilcliente.NumeroTelefonoMovilClienteDomain;
-import co.edu.uco.spaonline.service.domain.tipoidentificacion.TipoIdentificacionDomain;
 import co.edu.uco.spaonline.service.dto.ClienteDTO;
 import co.edu.uco.spaonline.service.mapper.dto.DTOMapper;
 import co.edu.uco.spaonline.service.mapper.dto.concrete.support.CorreoElectronicoClienteDTOMapper;
@@ -53,14 +48,14 @@ public class ClienteDTOMapper implements DTOMapper<ClienteDTO, ClienteDomain> {
 			throw ServiceSpaOnlineException.crear(mensajeUsuario, mensajeTecnico);
 		}
 		
-		UUID id = domain.getId();
-		TipoIdentificacionDomain tipoIdentificacion = domain.getTipoIdentificacion();
-		String identificacion = domain.getIdentificacion();
-		NombreCompletoClienteDomain nombreCompleto = domain.getNombreCompleto();
-		CorreoElectronicoClienteDomain correoElectronico = domain.getCorreoElectronico();
-		NumeroTelefonoMovilClienteDomain numeroTelefonoMovil = domain.getNumeroTelefonoMovil();
-
-		return ClienteDTO.crear(id, tipoIdentificacion, identificacion, nombreCompleto, correoElectronico, numeroTelefonoMovil);
+		return ClienteDTO.crear()
+				.setId(domain.getId())
+				.setTipoIdentificacion(TipoIdentificacionDTOMapper.convertToDTO(domain.getTipoIdentificacion()))
+				.setIdentificacion(domain.getIdentificacion())
+				.setNombreCompleto(NombreCompletoClienteDTOMapper.convertToDTO(domain.getNombreCompleto()))
+				.setCorreoElectronico(CorreoElectronicoClienteDTOMapper.convertToDTO(domain.getCorreoElectronico()))
+				.setNumeroTelefonoMovil(NumeroTelefonoMovilDTOMapper.convertToDTO(domain.getNumeroTelefonoMovil()))
+				.setFechaNacimiento(domain.getFechaNacimiento());
 	}
 	
 	public static final ClienteDomain convertToDomain(final ClienteDTO dto) {		 

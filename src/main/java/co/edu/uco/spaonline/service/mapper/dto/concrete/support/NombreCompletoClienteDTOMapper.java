@@ -36,13 +36,11 @@ public class NombreCompletoClienteDTOMapper implements DTOMapper<NombreCompletoC
 			var mensajeTecnico = CatalogoMensajes.obtenerContenido(CodigoMensaje.M0000014);
 			throw ServiceSpaOnlineException.crear(mensajeUsuario, mensajeTecnico);
 		}
-		
-		
-				String primerNombre = domain.getPrimerNombre();
-				String segundoNombre =domain.getSegundoNombre();
-				String primerApellido = domain.getPrimerApellido();
-				String segundoApellido = domain.getSegundoApellido();
-				return NombreCompletoClienteDTO.crear(primerNombre,segundoNombre,primerApellido,segundoApellido);
+		return NombreCompletoClienteDTO.crear()
+				.setPrimerNombre(domain.getPrimerNombre())
+				.setSegundoNombre(domain.getSegundoNombre())
+				.setPrimerApellido(domain.getPrimerApellido())
+				.setSegundoApellido(domain.getSegundoApellido());
 	}
 	
 	public static final NombreCompletoClienteDomain convertToDomain(final NombreCompletoClienteDTO dto) {		 

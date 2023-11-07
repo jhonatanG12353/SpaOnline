@@ -173,7 +173,7 @@ Optional<ClienteEntity> resultado = Optional.empty();
 								resultados.getString("segundoNombre"), resultados.getString("primerApellido"),
 								resultados.getString("segundoApellido")),
 						CorreoElectronicoClienteEntity.crear(resultados.getString("correoElectronico"),
-								BooleanEntity.crear(resultados.getBoolean("correoElectronicoConfirmado"), false).isValor()),
+								BooleanEntity.crear(resultados.getBoolean("correoElectronicoConfirmado"), false)),
 						NumeroTelefonoMovilClienteEntity.crear(resultados.getString("numeroTelefonoMovil"),
 								BooleanEntity.crear(resultados.getBoolean("numeroTelefonoMovilConfirmado"), false)),
 						resultados.getDate("fechaNacimiento"));

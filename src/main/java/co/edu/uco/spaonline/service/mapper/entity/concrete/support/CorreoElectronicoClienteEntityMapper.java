@@ -8,6 +8,7 @@ import co.edu.uco.spaonline.crosscutting.util.UtilObjeto;
 import co.edu.uco.spaonline.data.entity.support.CorreoElectronicoClienteEntity;
 import co.edu.uco.spaonline.service.domain.correoelectronicocliente.CorreoElectronicoClienteDomain;
 import co.edu.uco.spaonline.service.mapper.entity.EntityMapper;
+import co.edu.uco.spaonline.service.mapper.entity.concrete.BooleanEntityMapper;
 
 public class CorreoElectronicoClienteEntityMapper implements EntityMapper <CorreoElectronicoClienteEntity, CorreoElectronicoClienteDomain> {
 private static final EntityMapper<CorreoElectronicoClienteEntity, CorreoElectronicoClienteDomain> instancia = new CorreoElectronicoClienteEntityMapper();
@@ -23,7 +24,8 @@ public CorreoElectronicoClienteDomain toDomain(CorreoElectronicoClienteEntity en
 		throw ServiceSpaOnlineException.crear(mensajeUsuario, mensajeTecnico);
 	}
 	 
-	return CorreoElectronicoClienteDomain.crear(entity.getCorreoElectronico(),entity.isCorreoElectronicoConfirmado());
+	return CorreoElectronicoClienteDomain.crear(entity.getCorreoElectronico(),
+			BooleanEntityMapper.convertToDomain(entity.isCorreoElectronicoConfirmado()));
 }
 
 @Override
@@ -33,7 +35,8 @@ public CorreoElectronicoClienteEntity toEntity(CorreoElectronicoClienteDomain do
 		var mensajeTecnico = CatalogoMensajes.obtenerContenido(CodigoMensaje.M0000071);
 		throw ServiceSpaOnlineException.crear(mensajeUsuario,mensajeTecnico);
 	}
-	return CorreoElectronicoClienteEntity.crear(domain.getCorreoElectronico(),domain.isCorreoElectronicoConfirmado());
+	return CorreoElectronicoClienteEntity.crear(domain.getCorreoElectronico(),
+			BooleanEntityMapper.convertToEntity(domain.isCorreoElectronicoConfirmado()));
 }
 public static final CorreoElectronicoClienteDomain
 convertToDomain(final CorreoElectronicoClienteEntity entity) {

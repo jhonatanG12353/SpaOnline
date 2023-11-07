@@ -26,22 +26,31 @@ public final class ClienteDTO {
 	private NumeroTelefonoMovilClienteDTO numeroTelefonoMovil;
 	private Date fechaNacimiento;
 	
+	public ClienteDTO() {
+		setId(UtilUUID.UUIDDEFECTO);
+		setTipoIdentificacion(new TipoIdentificacionDTO());
+		setIdentificacion(UtilTexto.VACIO);
+		setNombreCompleto(new NombreCompletoClienteDTO());
+		setCorreoElectronico(new CorreoElectronicoClienteDTO());
+		setNumeroTelefonoMovil(new NumeroTelefonoMovilClienteDTO());
+		setFechaNacimiento(UtilFechaDefecto.FECHADEFECTO);
+	}
 	
 	public ClienteDTO(final UUID id, final TipoIdentificacionDTO tipoIdentificacion, final String identificacion,
 			final NombreCompletoClienteDTO nombreCompleto, final CorreoElectronicoClienteDTO correoElectronico,
 			final NumeroTelefonoMovilClienteDTO numeroTelefonoMovil, final Date fechaNacimiento) {
 		setId(id);
 		setTipoIdentificacion(tipoIdentificacion);
-		setIdentificacion(UtilTexto.VACIO);
+		setIdentificacion(identificacion);
 		setNombreCompleto(nombreCompleto);
 		setCorreoElectronico(correoElectronico);
 		setNumeroTelefonoMovil(numeroTelefonoMovil);
-		setFechaNacimiento(UtilFechaDefecto.FECHADEFECTO);
+		setFechaNacimiento(fechaNacimiento);
 	}
-	public static final ClienteDTO crear (final UUID id, final TipoIdentificacionDomain tipoIdentificacion, final String identificacion, final NombreCompletoClienteDomain nombreCompletoCliente, final CorreoElectronicoClienteDomain correoElectronicoCliente, final NumeroTelefonoMovilClienteDomain numeroTelefonoMovilCliente) {
-		return new ClienteDTO (id, null, identificacion, null, null, null,null);
+
+	public static final ClienteDTO crear(){
+		return new ClienteDTO();
 	}
-	
 
 	public final UUID getId() {
 		return id;
@@ -105,7 +114,5 @@ public final class ClienteDTO {
 		this.fechaNacimiento = UtilFechaDefecto.obtenerValorDefecto(fechaNacimiento, UtilFechaDefecto.FECHADEFECTO);
 		return this;
 	}
-	
-	
 
 }
