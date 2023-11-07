@@ -6,7 +6,6 @@ import java.util.UUID;
 import co.edu.uco.spaonline.data.entity.support.CorreoElectronicoClienteEntity;
 import co.edu.uco.spaonline.data.entity.support.NombreCompletoClienteEntity;
 import co.edu.uco.spaonline.data.entity.support.NumeroTelefonoMovilClienteEntity;
-import co.edu.uco.spaonline.service.domain.cliente.rules.FechaNacimientoClienteValidationRule;
 import co.edu.uco.spaonline.data.entity.ClienteEntity;
 public final class ClienteEntity {
 	private UUID id;

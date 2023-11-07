@@ -1,10 +1,8 @@
 package co.edu.uco.spaonline.data.dao.daofactory.concrete;
 
-import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.util.Properties;
 
 import co.edu.uco.spaonline.data.dao.ClienteDAO;
 import co.edu.uco.spaonline.data.dao.ServicioDAO;
@@ -24,7 +22,7 @@ import co.edu.uco.spaonline.crosscutting.messages.enumerator.CodigoMensaje;
 public class PostgreSQLDAOFactory extends DAOFactory{
 
 	private Connection conexion; 
-	private boolean enTransaccion = false;
+	
 	
 	public PostgreSQLDAOFactory () {
 		abrirConexion();
@@ -35,20 +33,14 @@ public class PostgreSQLDAOFactory extends DAOFactory{
 		       
  
             try {
-    			Properties prop = new Properties();
-    			InputStream input = getClass().getResourceAsStream("/application.properties");
-    			prop.load(input);
-    			String url = prop.getProperty("db.url");
-    			String user = prop.getProperty("db.user");
-    			String password = prop.getProperty("db.password");
-                
-                if (url == null || url.isEmpty() || user == null || user.isEmpty() || password == null || password.isEmpty()) {
-                	var mensajeUsuario = CatalogoMensajes.obtenerContenido(CodigoMensaje.M0000004);
-        			var mensajeTecnico = CatalogoMensajes.obtenerContenido(CodigoMensaje.M0000023);
-        			throw DataSpaOnlineException.crear(mensajeUsuario, mensajeTecnico);
-                }
-                
-                conexion = DriverManager.getConnection(url, user, password);
+
+            	
+            	String url = "jdbc:postgresql://localhost:5432/DB_SPA_ONLINE";
+            	String user = "spaonline";
+            	String password = "12353";
+
+            	
+    			conexion = DriverManager.getConnection(url,user,password);
             } catch (SQLException e) {
     			var mensajeUsuario = CatalogoMensajes.obtenerContenido(CodigoMensaje.M0000004);
     			var mensajeTecnico = CatalogoMensajes.obtenerContenido(CodigoMensaje.M0000024);
