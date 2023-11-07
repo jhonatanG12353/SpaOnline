@@ -1,36 +1,43 @@
 package co.edu.uco.spaonline.service.dto.support;
 
+import co.edu.uco.spaonline.crosscutting.util.UtilTexto;
 import co.edu.uco.spaonline.service.dto.support.CorreoElectronicoClienteDTO;
 
 public class CorreoElectronicoClienteDTO {
 	
-	public String CorreoElectronico;
-	public boolean correoElectronicoConfirmado;
+	private String correoElectronico;
+	private BooleanDTO correoElectronicoConfirmado;
 	
+	public CorreoElectronicoClienteDTO() {
+		setCorreoElectronico(UtilTexto.VACIO);
+		setCorreoElectronicoConfirmado(BooleanDTO.crear());
+	}
 	
-	public CorreoElectronicoClienteDTO(String correoElectronico, boolean correoElectronicoConfirmado) {
+	public CorreoElectronicoClienteDTO(final String correoElectronico, final BooleanDTO correoElectronicoConfirmado) {
 		setCorreoElectronico(correoElectronico);
-		setCorreoElectronicoConfirmado(correoElectronicoConfirmado);
+		setCorreoElectronicoConfirmado(BooleanDTO.crear().setValor(correoElectronicoConfirmado.isValor()).setValorDefecto(false));
+	}
+
+	public static final CorreoElectronicoClienteDTO crear() {
+		return new CorreoElectronicoClienteDTO();
 	}
 	
-	public final CorreoElectronicoClienteDTO  setCorreoElectronico(String correoElectronico) {
-		CorreoElectronico = correoElectronico;
-		return this;
-	}
-	public final CorreoElectronicoClienteDTO setCorreoElectronicoConfirmado(boolean correoElectronicoConfirmado) {
-		this.correoElectronicoConfirmado = correoElectronicoConfirmado;
-		return this;
-	}
 	public final String getCorreoElectronico() {
-		return CorreoElectronico;
+		return correoElectronico;
 	}
-	public final boolean isCorreoElectronicoConfirmado() {
+	
+	public final BooleanDTO isCorreoElectronicoConfirmado() {
 		return correoElectronicoConfirmado;
 	}
-	public static CorreoElectronicoClienteDTO crear(String correoElectronico,
-			boolean correoElectronicoConfirmado) {
-		return new CorreoElectronicoClienteDTO (correoElectronico,correoElectronicoConfirmado);
+
+	public final CorreoElectronicoClienteDTO setCorreoElectronico(final String correoElectronico) {
+		this.correoElectronico = UtilTexto.obtenerValorDefecto(UtilTexto.aplicarTrim(correoElectronico), UtilTexto.VACIO);
+		return this;
 	}
-	
-	
+
+	public final CorreoElectronicoClienteDTO setCorreoElectronicoConfirmado(final BooleanDTO correoElectronicoConfirmado) {
+		this.correoElectronicoConfirmado = correoElectronicoConfirmado.isValorDefecto() ? BooleanDTO.crear()
+				: BooleanDTO.crear().setValor(correoElectronicoConfirmado.isValor()).setValorDefecto(false);
+		return this;
+	}
 }

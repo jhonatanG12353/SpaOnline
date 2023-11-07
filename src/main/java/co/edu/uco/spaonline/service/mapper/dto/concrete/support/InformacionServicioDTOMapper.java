@@ -4,7 +4,7 @@ import co.edu.uco.spaonline.crosscutting.exception.concrete.ServiceSpaOnlineExce
 import co.edu.uco.spaonline.crosscutting.messages.CatalogoMensajes;
 import co.edu.uco.spaonline.crosscutting.messages.enumerator.CodigoMensaje;
 import co.edu.uco.spaonline.crosscutting.util.UtilObjeto;
-import co.edu.uco.spaonline.service.domain.support.InformacionServicioDomain;
+import co.edu.uco.spaonline.service.domain.informacionservicio.InformacionServicioDomain;
 import co.edu.uco.spaonline.service.dto.support.InformacionServicioDTO;
 import co.edu.uco.spaonline.service.mapper.dto.DTOMapper;
 

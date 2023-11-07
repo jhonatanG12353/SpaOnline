@@ -6,12 +6,8 @@ import java.util.UUID;
 import co.edu.uco.spaonline.data.entity.support.CorreoElectronicoClienteEntity;
 import co.edu.uco.spaonline.data.entity.support.NombreCompletoClienteEntity;
 import co.edu.uco.spaonline.data.entity.support.NumeroTelefonoMovilClienteEntity;
+import co.edu.uco.spaonline.service.domain.cliente.rules.FechaNacimientoClienteValidationRule;
 import co.edu.uco.spaonline.data.entity.ClienteEntity;
-import co.edu.uco.spaonline.service.domain.support.CorreoElectronicoClienteDomain;
-import co.edu.uco.spaonline.service.domain.support.NombreCompletoClienteDomain;
-import co.edu.uco.spaonline.service.domain.support.NumeroTelefonoMovilClienteDomain;
-import co.edu.uco.spaonline.service.domain.tipoidentificacion.TipoIdentificacionDomain;
-
 public final class ClienteEntity {
 	private UUID id;
 	private TipoIdentificacionEntity tipoIdentificacion;
@@ -31,9 +27,10 @@ public final class ClienteEntity {
 		setFechaNacimiento(fechaNacimiento);
 		
 	}
-	public static final ClienteEntity crear (final UUID id, final TipoIdentificacionDomain tipoIdentificacion, final String identificacion, final NombreCompletoClienteDomain nombreCompletoCliente, final CorreoElectronicoClienteDomain correoElectronicoCliente, final NumeroTelefonoMovilClienteDomain numeroTelefonoMovilCliente) {
-		return new ClienteEntity (id, null, identificacion, null, null, null, fechaNacimiento);
+	public static final ClienteEntity crear (final UUID id, final TipoIdentificacionEntity tipoIdentificacion, final String identificacion, final NombreCompletoClienteEntity nombreCompletoCliente, final CorreoElectronicoClienteEntity correoElectronicoCliente, final NumeroTelefonoMovilClienteEntity numeroTelefonoMovilCliente, final Date fechaNacimientoClienteValidationRule) {
+		return new ClienteEntity (id, tipoIdentificacion, identificacion, nombreCompletoCliente, correoElectronicoCliente, numeroTelefonoMovilCliente, fechaNacimiento);
 	}
+	
 	private final void setId(UUID id) {
 		this.id = id;
 	}
@@ -75,7 +72,7 @@ public final class ClienteEntity {
 		return fechaNacimiento;
 	}
 	@SuppressWarnings("static-access")
-	public final void setFechaNacimiento(Date fechaNacimiento) {
+	private final void setFechaNacimiento(final Date fechaNacimiento) {
 		this.fechaNacimiento = fechaNacimiento;
 	}
 	

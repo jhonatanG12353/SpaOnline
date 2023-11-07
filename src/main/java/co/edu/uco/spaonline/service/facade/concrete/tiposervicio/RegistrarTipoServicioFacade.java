@@ -5,7 +5,7 @@ import co.edu.uco.spaonline.crosscutting.exception.concrete.ServiceSpaOnlineExce
 import co.edu.uco.spaonline.data.dao.daofactory.DAOFactory;
 import co.edu.uco.spaonline.data.dao.daofactory.TipoDAOFactory;
 import co.edu.uco.spaonline.service.businesslogic.concrete.tipoidentificacion.RegistrarTipoIdentificacionUseCase;
-import co.edu.uco.spaonline.service.businesslogic.concrete.tipoidentificacion.RegistrarTipoServicioUseCase;
+import co.edu.uco.spaonline.service.businesslogic.concrete.tiposervicio.RegistrarTipoServicioUseCase;
 import co.edu.uco.spaonline.service.businesslogic.validator.concrete.tipoidentificacion.RegistrarTipoIdentificacionValidator;
 import co.edu.uco.spaonline.service.businesslogic.validator.concrete.tiposervicio.RegistrarTipoServicioValidator;
 import co.edu.uco.spaonline.service.domain.tipoidentificacion.TipoIdentificacionDomain;

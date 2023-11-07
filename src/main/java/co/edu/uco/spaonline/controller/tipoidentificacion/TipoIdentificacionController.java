@@ -5,9 +5,10 @@ import java.util.UUID;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 
+import co.edu.uco.spaonline.controller.support.request.SolicitarTipoIdentificacion;
 import co.edu.uco.spaonline.controller.support.response.Respuesta;
-import co.edu.uco.spaonline.service.dto.TipoIdentificacionDTO;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
@@ -15,24 +16,36 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 
 @Tag(name = "TipoIdenficicacionAPI", description = "Ofrece la api de consumo para todas las operaciones relacionadas con Tipo Identificacion")
 public interface TipoIdentificacionController {
-		
-	@Operation(summary = "Obtener Dummy", description = "Servicio ecargado de obtener la estructura JSON basica de un Tipo Identificacion")
-	 TipoIdentificacionDTO obtenerDummy();
-	
-	@Operation(summary = "Consultar", description = "Obtener la informacion de todos los tipos de identificacion que cumplelos parametros de filtrado enviado")
-	 ResponseEntity<Respuesta<TipoIdentificacionDTO>> consultar( @RequestBody TipoIdentificacionDTO dto);
-	
-	@Operation(summary = "Consultar por  id", description = "servicio encargado de obtener los tipos de identificacion que cumplen con el parametro de id")
-	 ResponseEntity<Respuesta<TipoIdentificacionDTO>> consultarPorId(@PathVariable ("id") UUID id);
-	
-	@Operation(summary = "Registrar", description = "servicio encargado de registrar la informacion del nuevo tipo de identificacion enviado")
-	@ApiResponses(value = { @ApiResponse(responseCode = "200", description = "Tipo de identifiacion registrado exitosamente"), 
-			@ApiResponse(responseCode = "400", description = "Tipo de identifiacion no registrado exitosamente por algun problema desconocido"),
-			 @ApiResponse(responseCode = "500", description = "Tipo de identifiacion no registrado exitosamente por un problema inesperado")})
-	ResponseEntity<Respuesta<TipoIdentificacionDTO>> registrar(@RequestBody TipoIdentificacionDTO dto);
-	
-	@Operation(summary = "Modificar", description = "servicio encargado de modificar la informacion  del tipo identificacion correspondiente enviado como parametro")
-	 ResponseEntity<Respuesta<TipoIdentificacionDTO>> modificar(@PathVariable ("id") UUID id, @RequestBody TipoIdentificacionDTO dto);
-	@Operation(summary = "Eliminar", description = "servicio encargado de eliminar la informacion del tipo identificacion correspondiente enviado como parametro")
-	 ResponseEntity<Respuesta<TipoIdentificacionDTO>> eliminar(@PathVariable ("id") UUID id);
+
+	@Operation(summary = "Obtener dummy", description = "Servicio encargado de obetener la estructura de un tipo de identificación")
+	SolicitarTipoIdentificacion obtenerDummy();
+
+	@Operation(summary = "Obtener tipo de identificación", description = "Servicio encargado de obetener la información de tipos de identificación que cumples los parametros de consulta")
+	@ApiResponses(value = { @ApiResponse(responseCode = "200", description = "Tipo identificación consultado exitosamente"),
+			@ApiResponse(responseCode = "400", description = "Problema con consulta de tipo de identificación"),
+			@ApiResponse(responseCode = "500", description = "Problema inesperado") })
+	ResponseEntity<Respuesta<SolicitarTipoIdentificacion>> consultar(
+			@RequestParam(name = "id", required = false) UUID id,
+			@RequestParam(name = "codigo", required = false) String codigo,
+			@RequestParam(name = "nombre", required = false) String nombre,
+			@RequestParam(name = "estado", required = false) Boolean estado);
+
+	@Operation(summary = "Regisrar tipo de identificación", description = "Servicio encargado de registrar un tipo de identificación")
+	@ApiResponses(value = { @ApiResponse(responseCode = "200", description = "Tipo identificación registrado"),
+			@ApiResponse(responseCode = "400", description = "Tipo de identificación no registrado"),
+			@ApiResponse(responseCode = "500", description = "Problema inesperado") })
+	ResponseEntity<Respuesta<SolicitarTipoIdentificacion>> registrar(@RequestBody SolicitarTipoIdentificacion req);
+
+	@Operation(summary = "Modificar tipo de identificación", description = "Servicio encargado de modificar un tipo de identificación a partir de su id")
+	@ApiResponses(value = { @ApiResponse(responseCode = "200", description = "Tipo identificación modificado"),
+			@ApiResponse(responseCode = "400", description = "Tipo de identificación no modificado"),
+			@ApiResponse(responseCode = "500", description = "Problema inesperado") })
+	ResponseEntity<Respuesta<SolicitarTipoIdentificacion>> modificar(@PathVariable("id") UUID id,
+			@RequestBody SolicitarTipoIdentificacion req);
+
+	@Operation(summary = "Eliminar tipo de identificación", description = "Servicio encargado de eliminar de forma definitiva un tipo de identificación a partir de su id")
+	@ApiResponses(value = { @ApiResponse(responseCode = "200", description = "Tipo identificación eliminado"),
+			@ApiResponse(responseCode = "400", description = "Tipo de identificación no eliminado"),
+			@ApiResponse(responseCode = "500", description = "Problema inesperado") })
+	ResponseEntity<Respuesta<SolicitarTipoIdentificacion>> eliminar(@PathVariable("id") UUID id);
 }

@@ -1,21 +1,14 @@
 package co.edu.uco.spaonline.service.domain.cliente;
 
+import java.sql.Date;
 import java.util.UUID;
 
 
-import co.edu.uco.spaonline.data.entity.TipoIdentificacionEntity;
-import co.edu.uco.spaonline.data.entity.support.CorreoElectronicoClienteEntity;
-import co.edu.uco.spaonline.data.entity.support.NombreCompletoClienteEntity;
-import co.edu.uco.spaonline.data.entity.support.NumeroTelefonoMovilClienteEntity;
 import co.edu.uco.spaonline.service.domain.cliente.ClienteDomain;
-import co.edu.uco.spaonline.service.domain.support.CorreoElectronicoClienteDomain;
-import co.edu.uco.spaonline.service.domain.support.NombreCompletoClienteDomain;
-import co.edu.uco.spaonline.service.domain.support.NumeroTelefonoMovilClienteDomain;
+import co.edu.uco.spaonline.service.domain.correoelectronicocliente.CorreoElectronicoClienteDomain;
+import co.edu.uco.spaonline.service.domain.nombrecompletocliente.NombreCompletoClienteDomain;
+import co.edu.uco.spaonline.service.domain.numerotelefonomovilcliente.NumeroTelefonoMovilClienteDomain;
 import co.edu.uco.spaonline.service.domain.tipoidentificacion.TipoIdentificacionDomain;
-import co.edu.uco.spaonline.service.dto.TipoIdentificacionDTO;
-import co.edu.uco.spaonline.service.dto.support.CorreoElectronicoClienteDTO;
-import co.edu.uco.spaonline.service.dto.support.NombreCompletoClienteDTO;
-import co.edu.uco.spaonline.service.dto.support.NumeroTelefonoMovilClienteDTO;
 
 public final class ClienteDomain {
 	private UUID id;
@@ -24,8 +17,10 @@ public final class ClienteDomain {
 	private NombreCompletoClienteDomain nombreCompleto;
 	private CorreoElectronicoClienteDomain correoElectronico;
 	private NumeroTelefonoMovilClienteDomain numeroTelefonoMovil;
+	private Date fechaNacimiento;
 	
-	private ClienteDomain(final UUID id, final TipoIdentificacionDomain tipoIdentificacion, final String identificacion, final NombreCompletoClienteDomain nombreClienteDomain, final CorreoElectronicoClienteDomain correoClienteDomain, final NumeroTelefonoMovilClienteDomain numeroTelefonoMovilClienteDomain) {
+	private ClienteDomain(final UUID id, final TipoIdentificacionDomain tipoIdentificacion, final String identificacion, final NombreCompletoClienteDomain nombreClienteDomain, final CorreoElectronicoClienteDomain correoClienteDomain,
+			final NumeroTelefonoMovilClienteDomain numeroTelefonoMovilClienteDomain , final Date fechaNacimiento) {
 		
 		setId(id);
 		setTipoIdentificacion(tipoIdentificacion);
@@ -33,20 +28,15 @@ public final class ClienteDomain {
 		setNombreCompleto(nombreClienteDomain);
 		setCorreoElectronico(correoClienteDomain);
 		setNumeroTelefonoMovil(numeroTelefonoMovilClienteDomain);
-		
+		setFechaNacimiento(fechaNacimiento);
 	}
-	public static final ClienteDomain crear(final UUID id, final TipoIdentificacionEntity tipoIdentificacion, final String identificacion, final NombreCompletoClienteEntity nombreCliente,
-		final CorreoElectronicoClienteEntity correoCliente, final NumeroTelefonoMovilClienteEntity numeroTelefonoMovilCliente) {
-		
-		return new ClienteDomain(id, null, identificacion, null, null, null);
-				
+	public static final ClienteDomain crear(final UUID id, final TipoIdentificacionDomain tipoIdentificacion, final String identificacion,
+			final NombreCompletoClienteDomain nombreCompleto, final CorreoElectronicoClienteDomain correoElectronico,
+			final NumeroTelefonoMovilClienteDomain numeroTelefonoMovil, final Date fechaNacimiento) {
+		return new ClienteDomain(id, tipoIdentificacion, identificacion, nombreCompleto, correoElectronico, numeroTelefonoMovil, fechaNacimiento);
 	}
 	
-	public static final ClienteDomain crear2(final UUID id, final TipoIdentificacionDTO tipoIdentificacion, final String identificacion, final NombreCompletoClienteDTO nombreCliente,
-			final CorreoElectronicoClienteDTO correoCliente, final NumeroTelefonoMovilClienteDTO numeroTelefonoMovilCliente) {
-				return new ClienteDomain(id, null, identificacion, null, null, null);
-					
-		}
+
 	
 	private final void setId(UUID id) {
 		this.id = id;
@@ -73,6 +63,9 @@ public final class ClienteDomain {
 	private final void setNumeroTelefonoMovil(NumeroTelefonoMovilClienteDomain numeroTelefonoMovil) {
 		this.numeroTelefonoMovil = numeroTelefonoMovil;
 	}
+	private final void setFechaNacimiento(final Date fechaNacimiento) {
+		this.fechaNacimiento = fechaNacimiento;
+	}
 	public final UUID getId() {
 		return id;
 	}
@@ -85,5 +78,7 @@ public final class ClienteDomain {
 	public final NombreCompletoClienteDomain getNombreCompleto() {
 		return nombreCompleto;
 	}
-	
+	public final Date getFechaNacimiento() {
+		return fechaNacimiento;
+	}
 }

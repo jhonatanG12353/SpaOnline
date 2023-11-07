@@ -8,7 +8,7 @@ import co.edu.uco.spaonline.crosscutting.messages.CatalogoMensajes;
 import co.edu.uco.spaonline.crosscutting.messages.enumerator.CodigoMensaje;
 
 public class UtilUUID {
-	
+	public static final UUID UUIDDEFECTO = new UUID(0L, 0L);
 	private UtilUUID () {
 		super();
 	}
@@ -30,5 +30,10 @@ public class UtilUUID {
         long menos = random.nextLong();
         return new UUID(mas, menos);
     }
-	
+	public static final boolean esNulo(final UUID uuid) {
+		return (uuid == null) || (uuid == UUIDDEFECTO);
+	}
+	public static final UUID obtenerValorDefecto(final UUID uuid, final UUID valorDefecto) {		
+		return esNulo(uuid) ? valorDefecto: uuid;
+	}
 }

@@ -3,31 +3,32 @@ package co.edu.uco.spaonline.data.entity.support;
 import co.edu.uco.spaonline.data.entity.support.NumeroTelefonoMovilClienteEntity;
 
 public class NumeroTelefonoMovilClienteEntity {
-	public String numeroTelefonoMovil;
-	public boolean numeroTelefonoConfirmado;
-	private NumeroTelefonoMovilClienteEntity(final String numeroTelefonoMovil, final boolean numeroTelefonoConfirmado) {
-		super();
-		setNumeroTelefonoMovil(numeroTelefonoMovil);
-		setNumeroTelefonoConfirmado(numeroTelefonoConfirmado);
-	}
+	private String numeroTelefonoMovil;
+	private BooleanEntity numeroTelefonoMovilConfirmado;
 	
-	public static NumeroTelefonoMovilClienteEntity crear(String numeroTelefonoMovil,
-			boolean numeroTelefonoConfirmado) {
-		
-		return new NumeroTelefonoMovilClienteEntity(numeroTelefonoMovil, numeroTelefonoConfirmado);
+	private NumeroTelefonoMovilClienteEntity(final String numeroTelefonoMovil, final BooleanEntity numeroTelefonoMovilConfirmado) {
+		setNumeroTelefonoMovil(numeroTelefonoMovil);
+		setNumeroTelefonoMovilConfirmado(numeroTelefonoMovilConfirmado);
 	}
+
+	public static final NumeroTelefonoMovilClienteEntity crear(final String numeroTelefonoMovil, final BooleanEntity numeroTelefonoMovilConfirmado) {
+		return new NumeroTelefonoMovilClienteEntity(numeroTelefonoMovil, numeroTelefonoMovilConfirmado);
+	}
+
 	private final void setNumeroTelefonoMovil(final String numeroTelefonoMovil) {
 		this.numeroTelefonoMovil = numeroTelefonoMovil;
 	}
-	private final void setNumeroTelefonoConfirmado( final boolean numeroTelefonoConfirmado) {
-		this.numeroTelefonoConfirmado = numeroTelefonoConfirmado;
+
+	private final void setNumeroTelefonoMovilConfirmado(final BooleanEntity numeroTelefonoMovilConfirmado) {
+		this.numeroTelefonoMovilConfirmado = numeroTelefonoMovilConfirmado;
 	}
+
 	public final String getNumeroTelefonoMovil() {
 		return numeroTelefonoMovil;
 	}
-	public final boolean isNumeroTelefonoConfirmado() {
-		return numeroTelefonoConfirmado;
+
+	public final BooleanEntity isNumeroTelefonoMovilConfirmado() {
+		return numeroTelefonoMovilConfirmado;
 	}
-	
 
 }

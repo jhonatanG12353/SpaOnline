@@ -3,25 +3,24 @@ package co.edu.uco.spaonline.data.entity;
 import java.util.UUID;
 
 import co.edu.uco.spaonline.data.entity.TipoIdentificacionEntity;
+import co.edu.uco.spaonline.data.entity.support.BooleanEntity;
 
 public final class TipoIdentificacionEntity {
 
 	private UUID id;
 	private String codigo;
 	private String nombre;
-	private boolean estado;
+	private BooleanEntity estado;
 	
-	private TipoIdentificacionEntity (final UUID id, final String codigo, final String nombre, final boolean estado) {
+	private TipoIdentificacionEntity(final UUID id, final String codigo, final String nombre, final BooleanEntity estado) {
 		setId(id);
 		setCodigo(codigo);
 		setNombre(nombre);
 		setEstado(estado);
-		
-		
 	}
 	
-	public static final TipoIdentificacionEntity crear (final UUID id, final String codigo, final String nombre, final boolean estado) {
-		return new TipoIdentificacionEntity(id, codigo, nombre, estado);
+	public static final TipoIdentificacionEntity crear(final UUID id, final String codigo, final String nombre, final BooleanEntity estado) {
+		return new TipoIdentificacionEntity(id,codigo,nombre,estado);
 	}
 
 	private final void setId(final UUID id) {
@@ -32,11 +31,11 @@ public final class TipoIdentificacionEntity {
 		this.codigo = codigo;
 	}
 
-	private final void setNombre( final String nombre) {
+	private final void setNombre(final String nombre) {
 		this.nombre = nombre;
 	}
 
-	private final void setEstado( final boolean estado) {
+	private final void setEstado(final BooleanEntity estado) {
 		this.estado = estado;
 	}
 
@@ -52,9 +51,8 @@ public final class TipoIdentificacionEntity {
 		return nombre;
 	}
 
-	public final boolean isEstado() {
+	public final BooleanEntity isEstado() {
 		return estado;
-	} 
-	
+	}
 	
 }

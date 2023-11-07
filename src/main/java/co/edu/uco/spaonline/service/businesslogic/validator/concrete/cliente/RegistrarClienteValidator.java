@@ -2,29 +2,47 @@ package co.edu.uco.spaonline.service.businesslogic.validator.concrete.cliente;
 
 import co.edu.uco.spaonline.service.businesslogic.validator.Validator;
 import co.edu.uco.spaonline.service.domain.cliente.ClienteDomain;
-import co.edu.uco.spaonline.service.domain.cliente.rules.CorreoElectronicoValidationRule;
-import co.edu.uco.spaonline.service.domain.cliente.rules.NombreCompletoValidationRule;
-import co.edu.uco.spaonline.service.domain.cliente.rules.NumeroTelefonoMovilValidationRule;
-import co.edu.uco.spaonline.service.domain.cliente.rules.TipoIdentificacionValidationRule;
-import co.edu.uco.spaonline.service.domain.cliente.rules.idClienteValidationRule;
-import co.edu.uco.spaonline.service.domain.cliente.rules.identificacionValidationRule;
+import co.edu.uco.spaonline.service.domain.cliente.rules.ClienteValidationRule;
+import co.edu.uco.spaonline.service.domain.cliente.rules.FechaNacimientoClienteValidationRule;
+import co.edu.uco.spaonline.service.domain.cliente.rules.IdentificacionValidationRule;
+import co.edu.uco.spaonline.service.domain.correoelectronicocliente.rules.CorreoElectronicoClienteValidationRule;
+import co.edu.uco.spaonline.service.domain.nombrecompletocliente.rules.NombreCompletoValidationRule;
+import co.edu.uco.spaonline.service.domain.nombrecompletocliente.rules.PrimerApellidoNombreCompletoClienteValidationRule;
+import co.edu.uco.spaonline.service.domain.nombrecompletocliente.rules.PrimerNombreNombreCompletoClienteValidationRule;
+import co.edu.uco.spaonline.service.domain.nombrecompletocliente.rules.SegundoApellidoNombreCompletoClienteValidationRule;
+import co.edu.uco.spaonline.service.domain.nombrecompletocliente.rules.SegundoNombreNombreCompletoClienteValidationRule;
+import co.edu.uco.spaonline.service.domain.numerotelefonomovilcliente.rules.NumeroTelefonoMovilClienteValidationRule;
+import co.edu.uco.spaonline.service.domain.numerotelefonomovilcliente.rules.NumeroTelefonoMovilValidationRule;
+import co.edu.uco.spaonline.service.domain.tipoidentificacion.rules.IdTipoIdentificacionValidationRule;
+import co.edu.uco.spaonline.service.domain.tipoidentificacion.rules.TipoIdentificacionValidationRule;
 
 public class RegistrarClienteValidator implements Validator<ClienteDomain> {
-	
 	private static final Validator<ClienteDomain> instancia = new RegistrarClienteValidator();
 	
+	private RegistrarClienteValidator() {
+		super();
+	}
 	
-	public static final void ejecutar (final ClienteDomain data) {
+	public static final void ejecutar(final ClienteDomain data) {
 		instancia.execute(data);
 	}
+
 	@Override
 	public void execute(ClienteDomain data) {
-		idClienteValidationRule.ejecutarValidacion(data.getId());
+		ClienteValidationRule.ejecutarValidacion(data);
 		TipoIdentificacionValidationRule.ejecutarValidacion(data.getTipoIdentificacion());
-		identificacionValidationRule.ejecutarValidacion(data.getIdentificacion());
+		IdTipoIdentificacionValidationRule.ejecutarValidacion(data.getTipoIdentificacion().getId());
+		IdentificacionValidationRule.ejecutarValidacion(data.getIdentificacion());
 		NombreCompletoValidationRule.ejecutarValidacion(data.getNombreCompleto());
-		CorreoElectronicoValidationRule.ejecutarValidacion(data.getCorreoElectronico());
-		NumeroTelefonoMovilValidationRule.ejecutarValidacion(data.getNumeroTelefonoMovil());
+		PrimerNombreNombreCompletoClienteValidationRule.ejecutarValidacion(data.getNombreCompleto().getPrimerNombre());
+		SegundoNombreNombreCompletoClienteValidationRule.ejecutarValidacion(data.getNombreCompleto().getSegundoNombre());
+		PrimerApellidoNombreCompletoClienteValidationRule.ejecutarValidacion(data.getNombreCompleto().getPrimerApellido());
+		SegundoApellidoNombreCompletoClienteValidationRule.ejecutarValidacion(data.getNombreCompleto().getSegundoApellido());
+		CorreoElectronicoClienteValidationRule.ejecutarValidacion(data.getCorreoElectronico().getCorreoElectronico());
+		NumeroTelefonoMovilClienteValidationRule.ejecutarValidacion(data.getNumeroTelefonoMovil());
+		NumeroTelefonoMovilValidationRule.ejecutarValidacion(data.getNumeroTelefonoMovil().getNumeroTelefonoMovil());
+		FechaNacimientoClienteValidationRule.ejecutarValidacion(data.getFechaNacimiento());
 	}
-
 }
+
+

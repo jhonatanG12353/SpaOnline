@@ -4,7 +4,7 @@ import java.util.UUID;
 
 import co.edu.uco.spaonline.data.entity.TipoServicioEntity;
 import co.edu.uco.spaonline.data.entity.support.InformacionServicioEntity;
-import co.edu.uco.spaonline.service.domain.support.InformacionServicioDomain;
+import co.edu.uco.spaonline.service.domain.informacionservicio.InformacionServicioDomain;
 import co.edu.uco.spaonline.service.domain.tiposervicio.TipoServicioDomain;
 import co.edu.uco.spaonline.service.dto.support.InformacionServicioDTO;
 

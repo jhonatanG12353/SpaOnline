@@ -16,9 +16,7 @@ public final class UtilObjeto {
 	}
 	
 
-	public static final <O> O obtenerValorDefecto(final O objeto, final O valorDefecto) {
-		return esNulo(objeto) ? valorDefecto : objeto;
-		// es signo ? significa que la sentencia es verdadera y los : hace que si no se
-		// cumple entonces devuelva la otra sentencia
+	public static final <O> O obtenerValorDefecto(final O objeto, final O valorDefecto) {		
+		return esNulo(objeto) ? valorDefecto: objeto;
 	}
 }

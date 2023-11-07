@@ -29,11 +29,6 @@ public final class IdTipoIdentificacionValidationRule implements ValidationRule 
 			throw ServiceSpaOnlineException.crear(mensajeUsuario);
 		}
 	}
-	private final void validarFormato(final UUID dato) {
-		if(!UtilObjeto.esNulo(dato)) {
-			var mensajeUsuario = "La longitud del codigo del tipo de identificacion solo puede contener letras...";
-			throw ServiceSpaOnlineException.crear(mensajeUsuario);
-		}
-	}
+
 	
 }

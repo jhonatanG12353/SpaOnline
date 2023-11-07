@@ -5,7 +5,7 @@ import co.edu.uco.spaonline.crosscutting.util.UtilObjeto;
 import co.edu.uco.spaonline.data.entity.support.InformacionServicioEntity;
 import co.edu.uco.spaonline.service.businesslogic.validator.Validator;
 import co.edu.uco.spaonline.service.domain.ValidationRule;
-import co.edu.uco.spaonline.service.domain.support.InformacionServicioDomain;
+import co.edu.uco.spaonline.service.domain.informacionservicio.InformacionServicioDomain;
 
 public class InformacionServicioValidationRule implements ValidationRule<InformacionServicioEntity>{
 	

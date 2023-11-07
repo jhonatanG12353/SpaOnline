@@ -1,7 +1,5 @@
 package co.edu.uco.spaonline.service.businesslogic.validator.concrete.tipoidentificacion;
 
-
-
 import co.edu.uco.spaonline.service.businesslogic.validator.Validator;
 import co.edu.uco.spaonline.service.domain.tipoidentificacion.TipoIdentificacionDomain;
 import co.edu.uco.spaonline.service.domain.tipoidentificacion.rules.CodigoTipoIdentificacionValidationRule;
@@ -14,6 +12,9 @@ public class ModificarTipoIdentificacionValidator implements Validator<TipoIdent
 	
 	private static final Validator<TipoIdentificacionDomain> instancia = new ModificarTipoIdentificacionValidator();
 	
+	public ModificarTipoIdentificacionValidator() {
+		super();
+	}
 	@Override
 	public final void execute(final TipoIdentificacionDomain data) {
 			TipoIdentificacionValidationRule.ejecutarValidacion(data);
