@@ -29,6 +29,5 @@ public class TipoIdentificacionValidationRule implements ValidationRule<TipoIden
 	}
 	
 	
-	
 
 }

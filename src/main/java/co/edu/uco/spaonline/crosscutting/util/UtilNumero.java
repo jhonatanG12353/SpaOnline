@@ -10,6 +10,8 @@ public class UtilNumero {
 		String numero = String.valueOf(dato);
 		return UtilTexto.aplicarTrim(numero).length()<= longitud;
 	}
-	
+	public static final boolean estaNulo(final Integer valor) {
+		return UtilObjeto.esNulo(valor);
+	}
 
 }

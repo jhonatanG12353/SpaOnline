@@ -33,7 +33,7 @@ public final class ClientePostgreSQLDAO extends SQLDAO implements ClienteDAO {
 	@Override
 	public final void crear(final ClienteEntity entity) {
 		final var sentencia = new StringBuilder();
-		sentencia.append("INSERT INTO Cliente (id,tipoidentificacion,identificacion,primernombre,segundonombre,primerapellido,segundoapellido,correocliente,"
+		sentencia.append("INSERT INTO cliente (id,tipoidentificacion,identificacion,primernombre,segundonombre,primerapellido,segundoapellido,correocliente,"
 				+ "correoelectronicoconfirmado,numerotelefonomovil,numerotelefonomovilconfirmado,fechanacimiento ");
 		sentencia.append("VALUES(?,?,?,?,?,?,?,?,?,?,?,?)");
 try(final var sentenciaPreparada = getConexion().prepareStatement(sentencia.toString()) ) {

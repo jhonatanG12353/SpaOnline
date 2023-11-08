@@ -1,20 +1,23 @@
 package co.edu.uco.spaonline.service.businesslogic.validator.concrete.servicio;
 
 import co.edu.uco.spaonline.service.businesslogic.validator.Validator;
-import co.edu.uco.spaonline.service.domain.tiposervicio.TipoServicioDomain;
-import co.edu.uco.spaonline.service.domain.tiposervicio.rule.IdTipoServicioValidationRule;
-import co.edu.uco.spaonline.service.domain.tiposervicio.rule.NombreTipoServicioValidationRule;
-
-public class ModificarServicioValidator implements Validator<TipoServicioDomain> {
+import co.edu.uco.spaonline.service.domain.servicio.ServicioDomain;
+import co.edu.uco.spaonline.service.domain.servicio.rules.DuracionHoraServicioValidationRule;
+import co.edu.uco.spaonline.service.domain.servicio.rules.IdServicioValidationRule;
+import co.edu.uco.spaonline.service.domain.servicio.rules.InformacionServicioValidationRule;
+import co.edu.uco.spaonline.service.domain.servicio.rules.PrecioValidationRule;
+public class ModificarServicioValidator implements Validator<ServicioDomain> {
 	
-	private static final Validator<TipoServicioDomain> instancia = new ModificarServicioValidator();
+	private static final Validator<ServicioDomain> instancia = new ModificarServicioValidator();
 	
 	@Override
-	public final void execute(final TipoServicioDomain data) {
-			IdTipoServicioValidationRule.ejecutarValidacion(data.getId());
-			NombreTipoServicioValidationRule.ejecutarValidacion(data.getNombreTipoServicio());
+	public final void execute(final ServicioDomain data) {
+			IdServicioValidationRule.ejecutarValidacion(data.getId());
+			InformacionServicioValidationRule.ejecutarValidacion(data.getInformacionServicio());
+			DuracionHoraServicioValidationRule.ejecutarValidacion(data.getDuracionHoraServicio());
+			PrecioValidationRule.ejecutarValidacion(data.getPrecio());
 	}
-	public static final void ejecutar (final TipoServicioDomain data) {
+	public static final void ejecutar (final ServicioDomain data) {
 		instancia.execute(data);
 	}
 

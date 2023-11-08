@@ -24,11 +24,10 @@ public class RegistrarTipoServicioUseCase implements UseCase<TipoServicioDomain>
 	
 	@Override
 	public void execute(TipoServicioDomain domain) {
-
-		domain = obtenerTipoServicioDomain( domain);
-
+		
 		validarNoExistenciaTipoServicioConMismoNombre(domain.getNombreTipoServicio());
-
+		validarIntegridadTipoServicio(domain);
+		domain = obtenerTipoServicioDomain( domain);
 		registrarNuevoTipoServicio(domain);
 	}
 	private void validarIntegridadTipoServicio(final TipoServicioDomain domain) {
@@ -81,7 +80,7 @@ public class RegistrarTipoServicioUseCase implements UseCase<TipoServicioDomain>
 		}
 	}
 
-private final TipoServicioDomain obtenerTipoServicioDomain(TipoServicioDomain domain) {
+	private final TipoServicioDomain obtenerTipoServicioDomain(TipoServicioDomain domain) {
 		
 		Optional<TipoServicioEntity> optional ;
 		UUID uuid;

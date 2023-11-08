@@ -28,7 +28,7 @@ public class ServicioPostgreSQLDAO extends SQLDAO implements ServicioDAO {
 	public final void crear(final ServicioEntity entity) {
 		
 		final var sentencia = new StringBuilder();
-		sentencia.append("INSERT INTO Cliente (id, tiposervicio, nombreservicio,descripcionservicio, precio, duracionhoraservicio ");
+		sentencia.append("INSERT INTO servicio (id, nombretiposervicio, informacionservicio, descripcionservicio, precio, duracionhoraservicio ");
 		sentencia.append("VALUES(?,?,?,?,?,?)");
 		try(final var sentenciaPreparada = getConexion().prepareStatement(sentencia.toString()) ) {
 			
@@ -56,8 +56,8 @@ public class ServicioPostgreSQLDAO extends SQLDAO implements ServicioDAO {
 	public final void modificar(final ServicioEntity entity) {	
 final var sentencia = new StringBuilder();
 	    
-	    sentencia.append("UPDATE cliente ");
-	    sentencia.append ("SET nombretiposervicio = ?, nombreservicio = ?, descripcionservicio = ?, precio = ?, duracionhoraservicio = ? ");
+	    sentencia.append("UPDATE servicio ");
+	    sentencia.append ("SET nombretiposervicio = ?, informacionservicio = ?, descripcionservicio = ?, precio = ?, duracionhoraservicio = ? ");
 	    sentencia.append ("WHERE id = ?");
 	    
 	    try(final var sentenciaPreparada = getConexion().prepareStatement(sentencia.toString()) ) {

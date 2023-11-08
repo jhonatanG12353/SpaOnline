@@ -15,6 +15,10 @@ public class ModificarTipoIdentificacionValidator implements Validator<TipoIdent
 	public ModificarTipoIdentificacionValidator() {
 		super();
 	}
+	
+	public static final void ejecutar (final TipoIdentificacionDomain data) {
+		instancia.execute(data);
+	}
 	@Override
 	public final void execute(final TipoIdentificacionDomain data) {
 			TipoIdentificacionValidationRule.ejecutarValidacion(data);
@@ -23,9 +27,6 @@ public class ModificarTipoIdentificacionValidator implements Validator<TipoIdent
 			NombreTipoIdentificacionValidationRule.ejecutarValidacion(data.getNombre());
 		
 		
-	}
-	public static final void ejecutar (final TipoIdentificacionDomain data) {
-		instancia.execute(data);
 	}
 
 	

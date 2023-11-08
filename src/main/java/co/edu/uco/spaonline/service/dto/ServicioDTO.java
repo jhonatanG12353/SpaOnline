@@ -2,10 +2,7 @@ package co.edu.uco.spaonline.service.dto;
 
 import java.util.UUID;
 
-import co.edu.uco.spaonline.data.entity.TipoServicioEntity;
-import co.edu.uco.spaonline.data.entity.support.InformacionServicioEntity;
-import co.edu.uco.spaonline.service.domain.informacionservicio.InformacionServicioDomain;
-import co.edu.uco.spaonline.service.domain.tiposervicio.TipoServicioDomain;
+import co.edu.uco.spaonline.crosscutting.util.UtilUUID;
 import co.edu.uco.spaonline.service.dto.support.InformacionServicioDTO;
 
 public final class ServicioDTO {
@@ -16,7 +13,16 @@ public final class ServicioDTO {
 	private Integer precio;
 	private Integer duracionHoraServicio;
 	
-	private ServicioDTO( final UUID id, final TipoServicioDTO tipoServicio, final InformacionServicioDTO informacionServicio, final Integer precio,
+	public ServicioDTO() {
+		setId(UtilUUID.UUIDDEFECTO);
+		setTipoServicio(tipoServicio);
+		setInformacionServicio(informacionServicio);
+		setPrecio(precio);
+		setDuracionHoraServicio(duracionHoraServicio);
+	}
+	
+	
+	public ServicioDTO( final UUID id, final TipoServicioDTO tipoServicio, final InformacionServicioDTO informacionServicio, final Integer precio,
 			final Integer duracionHoraServicio) {
 		
 		setId(id);
@@ -25,34 +31,35 @@ public final class ServicioDTO {
 		setPrecio(precio);
 		setDuracionHoraServicio(duracionHoraServicio);
 	}
-	public static ServicioDTO crear(final UUID id, final TipoServicioDomain tipoServicioDomain, final InformacionServicioDomain informacionServicioDomain, final Integer precio,
-			final Integer duracionHoraServicio) {
-		return new ServicioDTO(id,null,null, precio,duracionHoraServicio);
-	}
-	public static ServicioDTO crear(UUID id, TipoServicioEntity tipoServicio,
-			InformacionServicioEntity informacionServicio, Integer precio, Integer duracionHoraServicio) {
-		return new ServicioDTO(id,null,null, precio, duracionHoraServicio);
+	public static final ServicioDTO crear(){
+		return new ServicioDTO();
 	}
 
-	private final void setId(UUID id) {
+	public final ServicioDTO setId(UUID id) {
 		this.id = id;
+		return this;
 	}
 
-	private final void setTipoServicio(TipoServicioDTO tipoServicio) {
+	public final ServicioDTO setTipoServicio(TipoServicioDTO tipoServicio) {
 		this.tipoServicio = tipoServicio;
+		return this;
 	}
 
-	private final void setInformacionServicio(InformacionServicioDTO informacionServicio) {
+	private final ServicioDTO setInformacionServicio(InformacionServicioDTO informacionServicio) {
 		this.informacionServicio = informacionServicio;
+		return this;
 	}
 
-	private final void setPrecio(Integer precio) {
+	private final ServicioDTO setPrecio(Integer precio) {
 		this.precio = precio;
+		return this;
 	}
 
-	private final void setDuracionHoraServicio(Integer duracionHoraServicio) {
+	private final ServicioDTO setDuracionHoraServicio(Integer duracionHoraServicio) {
 		this.duracionHoraServicio = duracionHoraServicio;
+		return this;
 	}
+	
 
 	public final UUID getId() {
 		return id;
