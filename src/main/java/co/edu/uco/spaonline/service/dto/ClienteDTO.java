@@ -10,10 +10,6 @@ import co.edu.uco.spaonline.crosscutting.util.UtilUUID;
 import co.edu.uco.spaonline.service.dto.support.CorreoElectronicoClienteDTO;
 import co.edu.uco.spaonline.service.dto.support.NombreCompletoClienteDTO;
 import co.edu.uco.spaonline.service.dto.support.NumeroTelefonoMovilClienteDTO;
-import co.edu.uco.spaonline.service.domain.correoelectronicocliente.CorreoElectronicoClienteDomain;
-import co.edu.uco.spaonline.service.domain.nombrecompletocliente.NombreCompletoClienteDomain;
-import co.edu.uco.spaonline.service.domain.numerotelefonomovilcliente.NumeroTelefonoMovilClienteDomain;
-import co.edu.uco.spaonline.service.domain.tipoidentificacion.TipoIdentificacionDomain;
 import co.edu.uco.spaonline.service.dto.ClienteDTO;
 
 public final class ClienteDTO {

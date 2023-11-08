@@ -5,10 +5,10 @@ import co.edu.uco.spaonline.crosscutting.util.UtilObjeto;
 import co.edu.uco.spaonline.data.entity.support.InformacionServicioEntity;
 import co.edu.uco.spaonline.service.businesslogic.validator.Validator;
 import co.edu.uco.spaonline.service.domain.ValidationRule;
-import co.edu.uco.spaonline.service.domain.informacionservicio.InformacionServicioDomain;
 
 public class InformacionServicioValidationRule implements ValidationRule<InformacionServicioEntity>{
 	
+	@SuppressWarnings("unchecked")
 	private static final Validator<InformacionServicioEntity> instancia = (Validator<InformacionServicioEntity>) new InformacionServicioValidationRule();
 
 	private InformacionServicioValidationRule() {

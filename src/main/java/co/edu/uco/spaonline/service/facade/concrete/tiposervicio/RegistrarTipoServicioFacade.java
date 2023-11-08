@@ -4,15 +4,11 @@ import co.edu.uco.spaonline.crosscutting.exception.SpaOnlineException;
 import co.edu.uco.spaonline.crosscutting.exception.concrete.ServiceSpaOnlineException;
 import co.edu.uco.spaonline.data.dao.daofactory.DAOFactory;
 import co.edu.uco.spaonline.data.dao.daofactory.TipoDAOFactory;
-import co.edu.uco.spaonline.service.businesslogic.concrete.tipoidentificacion.RegistrarTipoIdentificacionUseCase;
 import co.edu.uco.spaonline.service.businesslogic.concrete.tiposervicio.RegistrarTipoServicioUseCase;
-import co.edu.uco.spaonline.service.businesslogic.validator.concrete.tipoidentificacion.RegistrarTipoIdentificacionValidator;
 import co.edu.uco.spaonline.service.businesslogic.validator.concrete.tiposervicio.RegistrarTipoServicioValidator;
-import co.edu.uco.spaonline.service.domain.tipoidentificacion.TipoIdentificacionDomain;
 import co.edu.uco.spaonline.service.domain.tiposervicio.TipoServicioDomain;
 import co.edu.uco.spaonline.service.dto.TipoServicioDTO;
 import co.edu.uco.spaonline.service.facade.Facade;
-import co.edu.uco.spaonline.service.mapper.dto.concrete.TipoIdentificacionDTOMapper;
 import co.edu.uco.spaonline.service.mapper.dto.concrete.TipoServicioDTOMapper;
 
 public class RegistrarTipoServicioFacade implements Facade <TipoServicioDTO>{

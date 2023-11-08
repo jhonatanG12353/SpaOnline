@@ -5,8 +5,6 @@ import java.io.InputStream;
 import java.util.Properties;
 
 import co.edu.uco.spaonline.crosscutting.exception.concrete.DataSpaOnlineException;
-import co.edu.uco.spaonline.crosscutting.messages.CatalogoMensajes;
-import co.edu.uco.spaonline.crosscutting.messages.enumerator.CodigoMensaje;
 
 public class Configuracion {
 	
@@ -16,9 +14,9 @@ public class Configuracion {
 		try (InputStream input =ClassLoader.getSystemResourceAsStream("config.properties")){
 			PROPIEDADES.load(input);
 		}catch(final IOException excepcion){
-			String mensajeUsuario="Error";
-			var mensajeTecnico= CatalogoMensajes.obtenerMensaje(CodigoMensaje.M0000031);
-			throw DataSpaOnlineException.crear(mensajeUsuario);
+			String mensajeUsuario="";
+			String mensajeTecnico="";
+			throw DataSpaOnlineException.crear(mensajeUsuario, mensajeTecnico);
 		
 		}
 	}

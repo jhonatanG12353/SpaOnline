@@ -3,10 +3,8 @@ package co.edu.uco.spaonline.service.domain.numerotelefonomovilcliente.rules;
 import co.edu.uco.spaonline.crosscutting.exception.concrete.ServiceSpaOnlineException;
 import co.edu.uco.spaonline.crosscutting.messages.CatalogoMensajes;
 import co.edu.uco.spaonline.crosscutting.messages.enumerator.CodigoMensaje;
-import co.edu.uco.spaonline.crosscutting.util.UtilObjeto;
 import co.edu.uco.spaonline.crosscutting.util.UtilTexto;
 import co.edu.uco.spaonline.service.domain.ValidationRule;
-import co.edu.uco.spaonline.service.domain.numerotelefonomovilcliente.NumeroTelefonoMovilClienteDomain;
 
 public class NumeroTelefonoMovilValidationRule implements ValidationRule<String> {
 	private static final ValidationRule<String> instancia = new NumeroTelefonoMovilValidationRule();
