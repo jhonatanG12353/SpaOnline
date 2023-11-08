@@ -8,7 +8,8 @@ import java.util.UUID;
 import co.edu.uco.spaonline.data.entity.TipoServicioEntity;
 
 public interface TipoServicioDAO {
-void crear(TipoServicioEntity entity);
+	
+    void crear(TipoServicioEntity entity);
 	
 	void modificar(TipoServicioEntity entity);
 	
