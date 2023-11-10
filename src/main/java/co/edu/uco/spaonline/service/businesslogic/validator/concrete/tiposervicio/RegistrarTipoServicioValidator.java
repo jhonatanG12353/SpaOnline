@@ -10,13 +10,13 @@ public class RegistrarTipoServicioValidator implements Validator<TipoServicioDom
 	private static final Validator<TipoServicioDomain> instancia = new RegistrarTipoServicioValidator();
 
 	@Override
-	public void execute(TipoServicioDomain data) {
+	public void validar(TipoServicioDomain data) {
 		IdTipoServicioValidationRule.ejecutarValidacion(data.getId());
 		NombreTipoServicioValidationRule.ejecutarValidacion(data.getNombreTipoServicio());
 		
 	}
 	public static final void ejecutar (final TipoServicioDomain data) {
-		instancia.execute(data);
+		instancia.validar(data);
 	}
 
 }

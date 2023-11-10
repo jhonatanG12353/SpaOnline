@@ -20,7 +20,7 @@ public class EliminarClienteFacade implements Facade<ClienteDTO>{
 		final ClienteDomain domain = ClienteDTOMapper.convertToDomain(dto);
 		EliminarClienteValidator.ejecutar(domain);
 		
-		DAOFactory daofactory = DAOFactory.obtenerDAOFactory(TipoDAOFactory.SQLSERVER);
+		DAOFactory daofactory = DAOFactory.obtenerDAOFactory(TipoDAOFactory.POSTGRESQL);
 		
 		try {
 			daofactory.iniciarTransaccion();

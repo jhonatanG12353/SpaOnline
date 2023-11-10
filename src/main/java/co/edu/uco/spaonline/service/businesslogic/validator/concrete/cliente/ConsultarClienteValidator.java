@@ -22,11 +22,11 @@ public class ConsultarClienteValidator implements Validator<ClienteDomain> {
 	}
 	
 	public static final void ejecutar(final ClienteDomain data) {
-		instancia.execute(data);
+		instancia.validar(data);
 	}
 
 	@Override
-	public void execute(ClienteDomain data) {
+	public void validar(ClienteDomain data) {
 		if(!UtilObjeto.esNulo(data)) {
 			if(!UtilUUID.esNulo(data.getId())) {
 				IdClienteValidationRule.ejecutarValidacion(data.getId());

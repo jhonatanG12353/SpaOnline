@@ -1,6 +1,8 @@
 package co.edu.uco.spaonline.crosscutting.util;
 
 public class UtilNumero {
+	
+	public static final Integer NUMERODEFECTO = 0000;
 
 	public static boolean longitudMinimaValida (final Integer valor, final int longitud) {
 		String numero = String.valueOf(valor);

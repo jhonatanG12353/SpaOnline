@@ -11,14 +11,14 @@ public class RegistrarServicioValidator implements Validator<ServicioDomain> {
 	
 	private static final Validator<ServicioDomain> instancia = new RegistrarServicioValidator();
 	
-	public void execute(ServicioDomain data) {
+	public void validar(ServicioDomain data) {
 	 IdServicioValidationRule.ejecutarValidacion(data.getId());
 	 InformacionServicioValidationRule.ejecutarValidacion(data.getInformacionServicio());
 	 PrecioValidationRule.ejecutarValidacion(data.getPrecio());
 	 DuracionHoraServicioValidationRule.ejecutarValidacion(data.getDuracionHoraServicio());
 	}
 	public static final void ejecutar (final ServicioDomain data) {
-		instancia.execute(data);
+		instancia.validar(data);
 	}
 	
 }

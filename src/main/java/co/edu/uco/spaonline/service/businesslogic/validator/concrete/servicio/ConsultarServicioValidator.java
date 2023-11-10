@@ -20,10 +20,10 @@ public class ConsultarServicioValidator implements Validator<ServicioDomain> {
 	}
 	
 	public static final void ejecutar(final ServicioDomain data) {
-		instancia.execute(data);
+		instancia.validar(data);
 	}
 	@Override
-	public void execute(ServicioDomain data) {
+	public void validar(ServicioDomain data) {
 		if(!UtilObjeto.esNulo(data)) {
 			if(!UtilUUID.esNulo(data.getId())) {
 				IdServicioValidationRule.ejecutarValidacion(data.getId());

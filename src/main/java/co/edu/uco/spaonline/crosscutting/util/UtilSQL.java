@@ -14,14 +14,14 @@ public class UtilSQL {
 	}
 	
 	public static final boolean conexionAbierta(final Connection conexion) {
-		if(!UtilObjeto.esNulo(conexion)) {
+		if(UtilObjeto.esNulo(conexion)) {
 			var mensajeUsuario = CatalogoMensajes.obtenerContenido(CodigoMensaje.M0000004);
 			var mensajeTecnico =CatalogoMensajes.obtenerContenido(CodigoMensaje.M0000007);
 			throw CrosscuttingSpaOnlineException.crear(mensajeUsuario,mensajeTecnico);
 			}
 		
 		try {
-			return !conexion.isClosed();
+			return !UtilObjeto.esNulo(conexion) && !conexion.isClosed();
 		} catch (final SQLException excepcion) {
 			var mensajeUsuario = CatalogoMensajes.obtenerContenido(CodigoMensaje.M0000004);
 			var mensajeTecnico = CatalogoMensajes.obtenerContenido(CodigoMensaje.M0000005);
@@ -64,7 +64,7 @@ public class UtilSQL {
 		}
 		
 		public static final void iniciarTransaccion (final Connection conexion){
-			if(!UtilObjeto.esNulo(conexion)) {
+			if(UtilObjeto.esNulo(conexion)) {
 				var mensajeUsuario = CatalogoMensajes.obtenerContenido(CodigoMensaje.M0000004);
 				var mensajeTecnico = CatalogoMensajes.obtenerContenido(CodigoMensaje.M0000010);
 				throw CrosscuttingSpaOnlineException.crear(mensajeUsuario,mensajeTecnico);

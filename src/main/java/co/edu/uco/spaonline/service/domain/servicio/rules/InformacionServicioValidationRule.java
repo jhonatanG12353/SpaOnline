@@ -16,7 +16,7 @@ public class InformacionServicioValidationRule implements ValidationRule<Informa
 	}
 	
 	public static final void ejecutarValidacion(final InformacionServicioDomain dato) {
-		instancia.execute(dato);
+		instancia.validar(dato);
 		
 	}
 

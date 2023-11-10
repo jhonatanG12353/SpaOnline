@@ -13,10 +13,10 @@ public class EliminarClienteValidator implements Validator<ClienteDomain> {
 	}
 	
 	public static final void ejecutar(final ClienteDomain data) {
-		instancia.execute(data);
+		instancia.validar(data);
 	}
 	@Override
-	public void execute(ClienteDomain data) {
+	public void validar(ClienteDomain data) {
 		ClienteValidationRule.ejecutarValidacion(data);
 		IdClienteValidationRule.ejecutarValidacion(data.getId());
 	}

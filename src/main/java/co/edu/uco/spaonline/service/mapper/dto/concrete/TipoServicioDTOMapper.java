@@ -1,5 +1,8 @@
 package co.edu.uco.spaonline.service.mapper.dto.concrete;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import co.edu.uco.spaonline.crosscutting.exception.concrete.ServiceSpaOnlineException;
 import co.edu.uco.spaonline.crosscutting.messages.CatalogoMensajes;
 import co.edu.uco.spaonline.crosscutting.messages.enumerator.CodigoMensaje;
@@ -38,6 +41,15 @@ public class TipoServicioDTOMapper implements DTOMapper<TipoServicioDTO, TipoSer
 	}
 	public static final TipoServicioDTO convertToDTO(final TipoServicioDomain domain) {
 		return instancia.toDTO(domain);
+	}
+	
+	
+	public static final List<TipoServicioDTO>  convertToListDTO(final List<TipoServicioDomain> dto){
+		List<TipoServicioDTO> resultados = new ArrayList<>();
+		for (int i = 0; i < dto.size(); i++) {
+			resultados.add(convertToDTO(dto.get(i)));
+		}
+		return resultados;
 	}
 
 }

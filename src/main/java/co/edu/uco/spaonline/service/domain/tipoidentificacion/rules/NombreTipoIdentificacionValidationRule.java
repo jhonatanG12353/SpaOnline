@@ -25,8 +25,8 @@ public final class NombreTipoIdentificacionValidationRule implements ValidationR
 	}
 	
 	private final void validarLongitud(final String dato) {
-		if(UtilTexto.longitudMaximaValida(dato,50)) {
-			var mensajeUsuario = "La longitud del codigo del tipo de identificacion no es valida. la longitud Maxima son 50 caracteres";
+		if(!UtilTexto.longitudMaximaValida(dato,50)) {
+			var mensajeUsuario = "La longitud del nombre del tipo de identificacion no es valida. la longitud Maxima son 50 caracteres";
 			throw ServiceSpaOnlineException.crear(mensajeUsuario);
 		}
 	}
@@ -37,8 +37,8 @@ public final class NombreTipoIdentificacionValidationRule implements ValidationR
 		}
 	}
 	private final void validarFormato(final String dato) {
-		if(!UtilTexto.contieneSoloLetras(dato)) {
-			var mensajeUsuario = "La longitud del codigo del tipo de identificacion solo puede contener letras...";
+		if(!UtilTexto.contieneSoloLetrasDigitosEspacios(dato)) {
+			var mensajeUsuario = "La longitud del nombre del tipo de identificacion solo puede contener letras...";
 			throw ServiceSpaOnlineException.crear(mensajeUsuario);
 		}
 	}

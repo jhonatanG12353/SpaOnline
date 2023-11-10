@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import co.edu.uco.spaonline.controller.support.request.SolicitarCliente;
-import co.edu.uco.spaonline.controller.support.request.SolicitarTipoIdentificacion;
 import co.edu.uco.spaonline.controller.support.response.Respuesta;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;

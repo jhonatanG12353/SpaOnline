@@ -24,7 +24,7 @@ public class ConsultarClienteFacade implements FacadeF<ClienteDTO>{
 		ConsultarClienteValidator.ejecutar(domain);
 		List<ClienteDTO> resultados = new ArrayList<>();
 		
-		DAOFactory daofactory = DAOFactory.obtenerDAOFactory(TipoDAOFactory.SQLSERVER);
+		DAOFactory daofactory = DAOFactory.obtenerDAOFactory(TipoDAOFactory.POSTGRESQL);
 		
 		try {
 			daofactory.iniciarTransaccion();

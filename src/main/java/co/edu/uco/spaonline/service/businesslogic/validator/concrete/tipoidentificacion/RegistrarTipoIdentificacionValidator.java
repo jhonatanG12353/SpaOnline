@@ -17,14 +17,14 @@ public class RegistrarTipoIdentificacionValidator implements Validator<TipoIdent
 	}
 	
 	@Override
-	public final void execute(final TipoIdentificacionDomain data) {
+	public final void validar(final TipoIdentificacionDomain data) {
 		TipoIdentificacionValidationRule.ejecutarValidacion(data);
 		CodigoTipoIdentificacionValidationRule.ejecutarValidacion(data.getCodigo());
 		NombreTipoIdentificacionValidationRule.ejecutarValidacion(data.getNombre());
 		
 	}
 	public static final void ejecutar (final TipoIdentificacionDomain data) {
-		instancia.execute(data);
+		instancia.validar(data);
 	}
 
 	

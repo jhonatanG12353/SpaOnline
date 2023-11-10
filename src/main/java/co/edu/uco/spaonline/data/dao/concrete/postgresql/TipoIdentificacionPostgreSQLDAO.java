@@ -222,15 +222,15 @@ public final class TipoIdentificacionPostgreSQLDAO extends SQLDAO implements Tip
 	private final void colocarParametrosConsulta(final PreparedStatement sentenciaPreparada, final List<Object> parametros ) {
 		try {
 			for (int indice = 0; indice < parametros.size(); indice++) {
-				sentenciaPreparada.setObject(indice + 1 , parametros.get(indice));
+				sentenciaPreparada.setObject(indice + 1, parametros.get(indice));
 			}
 			
-		}catch(final SQLException excepcion) {
+		}catch(SQLException excepcion) {
 			var mensajeUsuario = CatalogoMensajes.obtenerContenido(CodigoMensaje.M0000040);
 			var mensajeTecnico = CatalogoMensajes.obtenerContenido(CodigoMensaje.M0000053);
 			throw DataSpaOnlineException.crear(excepcion,mensajeUsuario,mensajeTecnico);
 		}
-		catch(final Exception excepcion) {
+		catch( Exception excepcion) {
 			var mensajeUsuario = CatalogoMensajes.obtenerContenido(CodigoMensaje.M0000040);
 			var mensajeTecnico = CatalogoMensajes.obtenerContenido(CodigoMensaje.M0000054);
 			throw DataSpaOnlineException.crear(excepcion,mensajeUsuario,mensajeTecnico);

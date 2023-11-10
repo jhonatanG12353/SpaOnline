@@ -26,7 +26,7 @@ public class RegistrarTipoIdentificacionUseCase implements UseCase<TipoIdentific
 	}
 	
 	@Override
-	public void execute(TipoIdentificacionDomain domain) {
+	public void execute(TipoIdentificacionDomain domain) {	
 		validarNoExistenciaMismoCodigo(domain.getCodigo());
 		validarNoExistenciaMismoNombre(domain.getNombre());
 		domain = obtenerIdentificadorTipoIdentificacion(domain);
@@ -49,7 +49,6 @@ public class RegistrarTipoIdentificacionUseCase implements UseCase<TipoIdentific
 		final var domain = TipoIdentificacionDomain.crear(null, codigo, null, BooleanDomain.crear(false, true));
 		final var entity = TipoIdentificacionEntityMapper.convertToEntity(domain);
 		final var resultados = getTipoIdentificacionDAO().consultar(entity);
-		
 		if(!resultados.isEmpty()) {
 			final var mensajeUsuario = CatalogoMensajes.obtenerContenido(CodigoMensaje.M0000079);
 			throw ServiceSpaOnlineException.crear(mensajeUsuario);

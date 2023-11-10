@@ -1,5 +1,8 @@
 package co.edu.uco.spaonline.service.mapper.entity.concrete;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import co.edu.uco.spaonline.crosscutting.exception.concrete.ServiceSpaOnlineException;
 import co.edu.uco.spaonline.crosscutting.messages.CatalogoMensajes;
 import co.edu.uco.spaonline.crosscutting.messages.enumerator.CodigoMensaje;
@@ -38,6 +41,13 @@ public class TipoServicioEntityMapper implements EntityMapper<TipoServicioEntity
 	public static final TipoServicioEntity
 	convertToEntity(final TipoServicioDomain domain) {
 		return instancia.toEntity(domain);
+	}
+	public static final List<TipoServicioDomain>  convertToListDomain(final List<TipoServicioEntity> entity){
+		List<TipoServicioDomain> resultados = new ArrayList<>();
+		for (int i = 0; i < entity.size(); i++) {
+			resultados.add(convertToDomain(entity.get(i)));
+		}
+		return resultados;
 	}
 
 }

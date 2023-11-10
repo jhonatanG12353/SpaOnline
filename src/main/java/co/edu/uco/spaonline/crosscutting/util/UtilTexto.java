@@ -4,8 +4,9 @@ public final class UtilTexto {
 	
 	public static final String VACIO="";
 	private static final String PATTER_SOLO_LETRAS="^[A-Za-záéíóúÁÉÍÓÚ]+$"; // esto es una expresion regular...
-	private static final String PATTER_SOLO_LETRAS_DIGITOS_ESPACIOS="^[0-9A-Za-záéíóúÁÉÍÓÚ]+$";
-	
+	private static final String PATTER_SOLO_LETRAS_DIGITOS_ESPACIOS="^[0-9a-zA-ZÁÉÍÓÚáéíóú ]+";
+	private static final String PATTERN_CORREO_ELECTRONICO = "^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$";
+	private static final String PATTERN_NUMERO_TELEFONO = "^[0-9]+$";
 	private UtilTexto () {
 		super();
 	}
@@ -59,6 +60,13 @@ public final class UtilTexto {
 	}
 	public static final boolean contieneSoloLetrasDigitosEspacios(final String valor) {
 		return obtenerValorDefecto(valor).matches(PATTER_SOLO_LETRAS_DIGITOS_ESPACIOS);
+	}
+	public static final boolean contieneFormatoCorreo(final String valor) {
+		return obtenerValorDefecto(valor).matches(PATTERN_CORREO_ELECTRONICO);
+	}
+	
+	public static final boolean contieneSoloDigitos(final String valor) {
+		return obtenerValorDefecto(valor).matches(PATTERN_NUMERO_TELEFONO);
 	}
 	
 }

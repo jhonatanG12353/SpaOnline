@@ -17,7 +17,7 @@ public class RegistrarTipoServicioFacade implements Facade <TipoServicioDTO>{
 	public final void execute(TipoServicioDTO dto) {
 		final TipoServicioDomain domain = TipoServicioDTOMapper.convertToDomain(dto);
 		RegistrarTipoServicioValidator.ejecutar(domain);
-		DAOFactory daoFactory = DAOFactory.obtenerDAOFactory(TipoDAOFactory.SQLSERVER);
+		DAOFactory daoFactory = DAOFactory.obtenerDAOFactory(TipoDAOFactory.POSTGRESQL);
 		
 		try {
 			daoFactory.iniciarTransaccion();

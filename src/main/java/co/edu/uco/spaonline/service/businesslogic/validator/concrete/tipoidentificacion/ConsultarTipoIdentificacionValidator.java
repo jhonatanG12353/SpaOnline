@@ -17,11 +17,11 @@ public class ConsultarTipoIdentificacionValidator implements Validator<TipoIdent
 	}
 	
 	public static final void ejecutar(final TipoIdentificacionDomain data) {
-		instancia.execute(data);
+		instancia.validar(data);
 	}
 	
 	@Override
-	public void execute(TipoIdentificacionDomain data) {
+	public void validar(TipoIdentificacionDomain data) {
 		if(!UtilObjeto.esNulo(data)) {
 			if(!UtilUUID.esNulo(data.getId())) {				
 				IdTipoIdentificacionValidationRule.ejecutarValidacion(data.getId());

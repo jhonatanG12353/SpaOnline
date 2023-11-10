@@ -10,11 +10,11 @@ public class EliminarServicioValidator implements Validator<ServicioDomain> {
 	private static final Validator<ServicioDomain> instancia = new EliminarServicioValidator();
 	
 	public static final void ejecutar(final ServicioDomain data) {
-		instancia.execute(data);
+		instancia.validar(data);
 	}
 	
 	@Override
-	public void execute(ServicioDomain data) {	
+	public void validar(ServicioDomain data) {	
 		ServicioValidationRule.ejecutarValidacion(data);
 		IdServicioValidationRule.ejecutarValidacion(data.getId());
 	}
