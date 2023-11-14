@@ -46,9 +46,9 @@ public class RegistrarTipoIdentificacionUseCase implements UseCase<TipoIdentific
 	}
 	
 	private final void validarNoExistenciaMismoCodigo(final String codigo) {
-		final var domain = TipoIdentificacionDomain.crear(null, codigo, null, BooleanDomain.crear(false, true));
-		final var entity = TipoIdentificacionEntityMapper.convertToEntity(domain);
-		final var resultados = getTipoIdentificacionDAO().consultar(entity);
+		var domain = TipoIdentificacionDomain.crear(null, codigo, null, BooleanDomain.crear(false, true));
+		var entity = TipoIdentificacionEntityMapper.convertToEntity(domain);
+		var resultados = getTipoIdentificacionDAO().consultar(entity);
 		if(!resultados.isEmpty()) {
 			final var mensajeUsuario = CatalogoMensajes.obtenerContenido(CodigoMensaje.M0000079);
 			throw ServiceSpaOnlineException.crear(mensajeUsuario);

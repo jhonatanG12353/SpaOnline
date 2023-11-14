@@ -14,7 +14,7 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 
-@Tag(name = "TipoIdenficicacionAPI", description = "Ofrece la api de consumo para todas las operaciones relacionadas con Tipo Identificacion")
+@Tag(name = "Tipo Idenficacion API", description = "Ofrece la api de consumo para todas las operaciones relacionadas con Tipo Identificacion")
 public interface TipoIdentificacionController {
 
 	@Operation(summary = "Obtener dummy", description = "Servicio encargado de obetener la estructura de un tipo de identificación")

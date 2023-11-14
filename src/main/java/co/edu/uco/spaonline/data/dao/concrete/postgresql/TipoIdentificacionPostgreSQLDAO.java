@@ -182,9 +182,9 @@ public final class TipoIdentificacionPostgreSQLDAO extends SQLDAO implements Tip
 				operadorCondicional = "AND";
 				parametros.add(entity.getNombre());
 			}
-			if(!UtilObjeto.esNulo(entity.isEstado())) {
+			if(!UtilObjeto.esNulo(entity.isEstado()) && !entity.isEstado().isValorDefecto()) {
 				sentencia.append(operadorCondicional).append(" estado = ? ");
-				parametros.add(entity.isEstado());
+				parametros.add(entity.isEstado().isValor());
 			}
 		}
 		sentencia.append("ORDER BY codigo ASC ");
