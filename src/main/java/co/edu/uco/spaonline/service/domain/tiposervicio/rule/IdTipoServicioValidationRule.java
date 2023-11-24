@@ -28,10 +28,5 @@ public class IdTipoServicioValidationRule implements  ValidationRule <UUID>{
 			throw ServiceSpaOnlineException.crear(mensajeUsuario);
 		}
 	}
-	private final void validarFormato(final UUID dato) {
-		if(!UtilObjeto.esNulo(dato)) {
-			var mensajeUsuario = "La longitud del codigo del tipo de Servicio solo puede contener letras...";
-			throw ServiceSpaOnlineException.crear(mensajeUsuario);
-		}
-	}
+
 }

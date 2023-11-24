@@ -58,7 +58,7 @@ public class TipoIdentificacionControllerImpl implements TipoIdentificacionContr
 			ConsultarTipoIdentificacionFacade facade = new ConsultarTipoIdentificacionFacade();
 			respuesta.setDatos(TipoIdentificacionResponse.convertListToResponse(facade.execute(dto)));
 			codigoHttp = HttpStatus.OK;
-			respuesta.getMensajes().add(CatalogoMensajes.obtenerContenido(CodigoMensaje.M0000033));
+			respuesta.getMensajes().add(CatalogoMensajes.obtenerContenido(CodigoMensaje.M0000073));
 		} catch (SpaOnlineException e) {
 			respuesta.getMensajes().add(e.getMensajeTecnico());
 			logger.error(e.getMensajeTecnico(), e.getExcepcionRaiz());

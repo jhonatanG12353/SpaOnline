@@ -58,7 +58,9 @@ public final class TipoIdentificacionPostgreSQLDAO extends SQLDAO implements Tip
 		final var sentencia = new StringBuilder();
 	    
 	    sentencia.append("UPDATE tipoidentificacion ");
-	    sentencia.append ("SET codigo = ?, nombre = ?, estado = ? ");
+	    sentencia.append ("SET codigo = ?,");
+	    sentencia.append ("    nombre = ?,");
+	    sentencia.append ("    estado = ? ");
 	    sentencia.append ("WHERE id = ?");
 	    
 	    try(final var sentenciaPreparada = getConexion().prepareStatement(sentencia.toString()) ) {
@@ -167,19 +169,19 @@ public final class TipoIdentificacionPostgreSQLDAO extends SQLDAO implements Tip
 		sentencia.append("FROM tipoidentificacion ");
 		if(!UtilObjeto.esNulo(entity)) {
 			
-			if(!UtilObjeto.esNulo(entity.getId())) {
+			if(!UtilObjeto.esNulooVacio(entity.getId())) {
 				sentencia.append(operadorCondicional).append(" id = ? ");
-				operadorCondicional = "AND";
+				operadorCondicional = " AND";
 				parametros.add(entity.getId());
 			}
 			if(!UtilTexto.estaVacio(entity.getCodigo())) {
 				sentencia.append(operadorCondicional).append(" codigo = ? ");
-				operadorCondicional = "AND";
+				operadorCondicional = " AND";
 				parametros.add(entity.getCodigo());
 			}
 			if(!UtilTexto.estaVacio(entity.getNombre())) {
 				sentencia.append(operadorCondicional).append(" nombre = ? ");
-				operadorCondicional = "AND";
+				operadorCondicional = " AND";
 				parametros.add(entity.getNombre());
 			}
 			if(!UtilObjeto.esNulo(entity.isEstado()) && !entity.isEstado().isValorDefecto()) {
@@ -187,7 +189,7 @@ public final class TipoIdentificacionPostgreSQLDAO extends SQLDAO implements Tip
 				parametros.add(entity.isEstado().isValor());
 			}
 		}
-		sentencia.append("ORDER BY codigo ASC ");
+		sentencia.append("ORDER BY codigo");
 		
 		return sentencia.toString();
 	}
